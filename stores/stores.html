@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stores with Pagination</title>
+    <link rel="stylesheet" href="stores.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="stores.js"></script>
+</head>
+
+<body>
+    <h1>Stores</h1>
+    <ul id="store-list"></ul>
+    <div id="pagination">
+        <button id="prev-page" disabled>Previous</button>
+        <span id="current-page">Page 1</span>
+        <button id="next-page">Next</button>
+    </div>
+    <h1>Store Detail</h1>
+    <div id="store-detail">
+        <p>ID: <span id="store-id"></span></p>
+        <p>Store Name: <span id="store-name"></span></p>
+        <p>Category: <span id="store-category"></span></p>
+        <p>Phone Number: <span id="store-phone"></span></p>
+        <p>Address: <span id="store-address"></span></p>
+    </div>
+</body>
+
+</html>
