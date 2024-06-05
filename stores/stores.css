@@ -1,0 +1,31 @@
+#store-list {
+    list-style: none;
+    padding: 0;
+}
+
+#store-list li {
+    margin-bottom: 10px;
+}
+
+#pagination {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+}
+
+#pagination button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pagination button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#current-page {
+    margin: 0 10px;
+    font-weight: bold;
+}
