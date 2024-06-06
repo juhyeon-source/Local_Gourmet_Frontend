@@ -27,7 +27,7 @@ function updateReviewList(reviewData) {
       const listItem = document.createElement('li');  
       const reviewLink = document.createElement('a'); 
       reviewLink.href = "#";  
-      reviewLink.textContent = `${review.store} - ${review.username} (${review.score}점)`;
+      reviewLink.textContent = `${review.store} - ${review.username} (${review.score}/5점)`;
       reviewLink.dataset.reviewId = review.id;  
       reviewLink.addEventListener('click', getReviewDetail);  
       listItem.appendChild(reviewLink); 
@@ -63,11 +63,11 @@ function getReviewDetail(event) {
     console.log(event)
     axios.get(`http://127.0.0.1:8000/api/reviews/${reviewId}/`)  
       .then(response => {
-        const review = response.data.results;
-        document.getElementById('review-id').textContent = review.get('id');
-        document.getElementById('store-id').textContent = review.store.id;
-        document.getElementById('store-name').textContent = review.store.store_name;
-        document.getElementById('username').textContent = review.user.username;
+        const review = response.data;
+        document.getElementById('review-id').textContent = review.id;
+        document.getElementById('store-id').textContent = review.store_id;
+        document.getElementById('store-name').textContent = review.store;
+        document.getElementById('username').textContent = review.username;
         document.getElementById('score').textContent = review.score;
         document.getElementById('review-content').textContent = review.review_content;
         document.getElementById('image').textContent = review.image;
