@@ -11,7 +11,7 @@ let currentPage = 1;
 
 // 매장 목록 데이터 가져오기 함수
 function getStores(page) {
-  axios.post(`http://127.0.0.1:8000/api/stores/?page=${page}`)  // 지정된 페이지의 매장 데이터를 API로 가져옴
+  axios.get(`http://127.0.0.1:8000/api/stores/?page=${page}`)  // 지정된 페이지의 매장 데이터를 API로 가져옴
     .then(response => {
       console.log('API Response:', response);
       const storeData = response.data.results;  // 응답 데이터에서 매장 목록 추출
