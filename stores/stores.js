@@ -28,7 +28,7 @@ function updateStoreList(storeData) {
   storeData.forEach(store => {
     const listItem = document.createElement('li');  // 매장 목록 아이템 생성
     const storeLink = document.createElement('a');  // 매장 이름 링크 생성
-    storeLink.href = store.url;  // 링크 클릭 시 페이지 이동 방지
+    storeLink.href = `stores_detail.html?storeId=${store.id}`; // 매장 상세 페이지 URL로 변경
     storeLink.target = '_blank';
     storeLink.textContent = store.store_name;  // 매장 이름 표시
     storeLink.dataset.storeId = store.id;  // 매장 ID 데이터 속성으로 저장
