@@ -26,14 +26,21 @@ function getStores(page) {
 function updateStoreList(storeData) {
   storeListElement.innerHTML = '';  // 기존 매장 목록 내용 제거
   storeData.forEach(store => {
+    const imgItem = document.createElement('img');  // 이미지 표시
     const listItem = document.createElement('li');  // 매장 목록 아이템 생성
     const storeLink = document.createElement('a');  // 매장 이름 링크 생성
+    const storeName = document.createElement('p');  // 매장 이름 표시
+    imgItem.className = 'store-img'; // 이미지 클라스 추가
+    imgItem.src = store.image;  // 이미지 표시
+    storeName.className = 'store-name'; // 매장 클라스 추가
+    storeName.textContent = store.store_name; // 매장 이름 표시
     storeLink.href = `stores_detail.html?storeId=${store.id}`; // 매장 상세 페이지 URL로 변경
     storeLink.target = '_blank';
-    storeLink.textContent = store.store_name;  // 매장 이름 표시
+    // storeLink.textContent = store.store_name;  // 매장 이름 표시
     storeLink.dataset.storeId = store.id;  // 매장 ID 데이터 속성으로 저장
-    // storeLink.addEventListener('click', getStoreDetail);  // 매장 링크 클릭 이벤트 리스너 등록
+    storeLink.appendChild(imgItem);  // 이미지 표시를 목록 아이템에 추가
     listItem.appendChild(storeLink);  // 매장 링크를 목록 아이템에 추가
+    listItem.appendChild(storeName);  // 매장 링크를 목록 아이템에 추가
     storeListElement.appendChild(listItem);  // 목록 아이템을 매장 목록 요소에 추가
   });
 }
