@@ -1,0 +1,361 @@
+/* 기본 스타일 유지 */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    position: relative;
+    background: #ffffff;
+    background-image: url('images/header-bg.png'); /* 실제 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    padding: 100px; /* 패딩 값을 조절하여 내용물의 위치 조정 */
+    height: 400px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.auth-buttons {
+    position: absolute;
+    top: 10px; /* 헤더의 상단에서 20px 아래 */
+    right: 20px; /* 헤더의 오른쪽 끝에서 20px 떨어진 위치 */
+    display: flex;
+    gap: 20px; /* 버튼 사이 간격 20px */
+}
+
+.auth-buttons button {
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-container {
+    position: absolute;
+    top: 100%; /* 헤더 바로 아래 */
+    margin-top: -80px; /* 헤더 아래에서 20px 간격 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px); /* 좌우 여백을 위해 너비 조정 */
+    max-width: 1000px; /* 최대 너비 설정 */
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0 20px; /* 좌우 여백 */
+    background-color: rgba(255, 255, 255, 0.7); /* 배경색을 70% 불투명하게 설정 */
+    border: 1px solid #ccc; /* 얇은 테두리 추가 */
+    border-radius: 5px; /* 둥근 모서리 */
+}
+
+.search-container input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background-color: #ffffff;
+    color: #4CAF50;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-left: 1px solid #ccc; /* 버튼 왼쪽에 테두리 추가 */
+}
+
+nav {
+    top: 100%; /* 헤더 바로 아래 */
+    margin-top: 0px; /* 헤더 아래에서 20px 간격 */
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+nav button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    margin-top: 0;
+    color: #4CAF50;
+}
+
+.category {
+    margin-bottom: 40px;
+}
+
+
+
+
+
+
+.store-slider {
+    display: flex;
+    overflow-x: auto;
+}    
+
+.store-slider .store-item {
+    flex: 0 0 150px;
+    margin: 0 10px;
+    background: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}    
+
+.store-slider .store-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}    
+
+
+
+
+
+
+
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+}
+
+.category-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}    
+
+.category-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}    
+
+.category-item {
+    flex: 0 0 300px;
+    margin: 0 10px;
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}    
+
+
+
+
+
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}    
+
+.star {
+    font-size: 1.5em;
+    color: #ddd;
+    margin: 0 2px;
+}    
+
+.star-filled {
+    color: #FFD700;
+}    
+
+
+
+
+
+
+
+
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+#recipe-button {
+    position: fixed;
+    bottom: 110px; /* 푸터 위로 30px */
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #e05a57;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+}
+
+.chat-container {
+    width: 400px;
+    height: 600px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* 기본적으로 숨기기 */
+    flex-direction: column;
+    position: fixed;
+    bottom: 170px; /* 버튼 위로 30px */
+    right: 20px;
+}
+
+
+.chat-container.active {
+    display: flex; /* active 클래스가 추가되면 보이게 */
+}
+
+
+
+.chat-header {
+    background-color: #f47827;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #fff;
+    position: relative;
+}
+
+.chat-message {
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 20px;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+.user {
+    background-color: #007bff;
+    color: white;
+    text-align: right;
+    margin-left: auto;
+}
+
+.ai {
+    background-color: #e9ecef;
+    text-align: left;
+    margin-right: auto;
+}
+
+.chat-input {
+    padding: 10px;
+    background-color: #f8f9fa;
+    display: flex;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    margin-right: 8px;
+    outline: none;
+}
+
+.chat-input button {
+    background-color: #f47827;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+footer {
+    background: #e05a57;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
