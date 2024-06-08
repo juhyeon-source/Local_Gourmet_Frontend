@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review List</title>
+    <link rel="stylesheet" href="{% static 'reviews.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="{% static 'reviews.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Reviews</h1>
+            <nav>
+                <ul>
+                    <li><a href="#info">Information</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section id="info">
+            <h2>Restaurant Information</h2>
+            <p>Address: Sample Address</p>
+            <p>Phone: 123-456-7890</p>
+            <p>Hours: 11:00 - 22:00</p>
+        </section>
+        <section id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li>Sample Dish: $10.00</li>
+                <li>Another Dish: $12.00</li>
+            </ul>
+        </section>
+        <section id="reviews">
+            <h2>Reviews</h2>
+            <div id="reviews-section">
+                <div id="review-list"></div>
+                <button id="load-more-reviews" data-page="1">Load More Reviews</button>
+            </div>
+            <div id="review-details-section" style="display:none;">
+                <h3 id="review-title-detail"></h3>
+                <p id="review-content-detail"></p>
+                <div id="comment-list"></div>
+                <textarea id="comment-content" placeholder="Add a comment"></textarea>
+                <button id="create-comment-button">Add Comment</button>
+            </div>
+            <div id="create-review-section" style="display:none;">
+                <input id="review-title" placeholder="Review Title">
+                <textarea id="review-content" placeholder="Review Content"></textarea>
+                <button id="create-review-button">Submit Review</button>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2023 Dining Code</p>
+    </footer>
+</body>
+</html>
