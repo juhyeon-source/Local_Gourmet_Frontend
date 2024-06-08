@@ -8,14 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="reviews.js"></script>
 </head>
-
 <body>
     <h1>Reviews</h1>
     <ul id="review-list"></ul>
-    <div id="pagination">
-        <button id="prev-page" disabled>Previous</button>
-        <span id="current-page">Page 1</span>
-        <button id="next-page">Next</button>
+    <div id="review-pagination">
+        <button id="review-prev-page" disabled>Previous</button>
+        <span id="review-current-page">Page 1</span>
+        <button id="review-next-page">Next</button>
     </div>
 
     <h1>Review Detail</h1>
@@ -29,6 +28,14 @@
         <p>Image: <span id="image"></span></p>
         <p>Created Date: <span id="created-at"></span></p>
         <p>Updated Date: <span id="updated-at"></span></p>
+
+        <h3>Comment List</h3>
+        <ul id="comment-list"></ul>
+        <div id="comment-pagination">
+            <button id="comment-prev-page" disabled>Previous</button>
+            <span id="comment-current-page">Page 1</span>
+            <button id="comment-next-page">Next</button>
+        </div>
     </div>
 
     <h1>Create Review</h1>
@@ -53,7 +60,7 @@
                 <option value="5">5</option>
             </select><br>
             <label for="image">이미지 : </label>
-            <input type="file" id="image" name="image" required><br>
+            <input type="file" id="image" name="image" accept="image/png, image/gif, image/jpeg" required><br>
             <label for="review-content">내용 : </label>
             <textarea id="review-content" name="review_content" placeholder="리뷰를 써주세요." required></textarea><br>
             <input type="submit" value="저장">
