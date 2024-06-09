@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MEB56YBWDJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-MEB56YBWDJ");
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>회원가입 페이지</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter%3A400%2C700"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"
+    />
+    <link rel="stylesheet" href="/static/css/user/register.css" />
+    <script src="/static/js/user/register.js"></script>
+    <script src="/static/js/user/social.js"></script>
+    <link rel="shortcut icon" href="/yumyum.ico" />
+  </head>
+  <body>
+    <div class="register-box">
+      <form id="signupForm" enctype="multipart/form-data">
+        <div class="register-content">
+          <a href="/"
+            ><img class="logo-img" src="/static/img/user/logo.png"
+          /></a>
+          <div class="about-page">회원가입</div>
+
+          <div class="div-input-list">
+            <label class="label">사용자 이름</label>
+            <input
+              class="info"
+              id="username"
+              name="username"
+              type="text"
+              placeholder="사용자 이름"
+              required
+            />
+          </div>
+
+          <div class="div-input-list">
+            <label class="label">비밀번호</label>
+            <input
+              class="info"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="비밀번호 입력"
+              required
+            />
+          </div>
+
+          <div class="div-input-list">
+            <label class="label">비밀번호 확인</label>
+            <input
+              class="info"
+              type="password"
+              id="password-check"
+              placeholder="비밀번호 확인"
+              required
+            />
+          </div>
+
+          <div class="div-input-list">
+            <label class="label">성별</label>
+            <select class="info" id="gender" name="gender">
+              <option value="-">선택안함</option>
+              <option value="M">남성</option>
+              <option value="F">여성</option>
+            </select>
+          </div>
+
+          <div class="div-input-list">
+            <label class="label">전화번호</label>
+            <input
+              class="info"
+              id="phone_number"
+              name="phone_number"
+              type="text"
+              placeholder="010-1234-5678"
+            />
+          </div>
+
+          <div class="div-input-list">
+            <label class="label">주소(시)</label>
+            <input
+              class="info"
+              id="address_si"
+              name="address_si"
+              type="text"
+              placeholder="서울특별시"
+            />
+          </div>
+
+          <div class="div-input-list">
+            <label class="label">주소(구)</label>
+            <input
+              class="info"
+              id="address_gu"
+              name="address_gu"
+              type="text"
+              placeholder="강남구"
+            />
+          </div>
+
+          <div class="div-input-list">
+            <label class="label">상세주소</label>
+            <input
+              class="info"
+              id="address_detail"
+              name="address_detail"
+              type="text"
+              placeholder="세부 주소"
+            />
+          </div>
+
+          <div class="div-input-list">
+            <label class="label">프로필 이미지</label>
+            <input
+              type="file"
+              class="info"
+              id="profile_picture"
+              name="profile_picture"
+            />
+          </div>
+        </div>
+        <div>
+          <button
+            class="button-register"
+            type="button"
+            onclick="handleSignupButton()"
+          >
+            회원가입
+          </button>
+        </div>
+        <div class="social-login">
+          <button type="button" class="social" onclick="kakaoLogin()">
+            <img class="icon" src="/static/img/user/kakao-icon.png" />
+          </button>
+          <button type="button" class="social" onclick="naverLogin()">
+            <img class="icon" src="/static/img/user/naver-icon.png" />
+          </button>
+          <button type="button" class="social" onclick="googleLogin()">
+            <img class="icon" src="/static/img/user/google-icon.png" />
+          </button>
+        </div>
+      </form>
+      <div>
+        <a class="login" href="/user/login.html">로그인</a>
+      </div>
+    </div>
+    <div class="page-img"></div>
+  </body>
+</html>
