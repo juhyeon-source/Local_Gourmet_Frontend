@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-MEB56YBWDJ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-MEB56YBWDJ");
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>로그인 페이지</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter%3A400%2C700"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"
+    />
+    <link rel="stylesheet" href="/static/css/user/login.css" />
+    <link rel="shortcut icon" href="/yumyum.ico" />
+  </head>
+  <body>
+    <div class="login-box">
+      <form>
+        <div class="login-content">
+          <a href="/"
+            ><img class="logo-img" src="/static/img/user/logo.png"
+          /></a>
+          <div class="about-page">로그인</div>
+
+          <div class="div-input-list">
+            <label class="label">유저명</label>
+            <input
+              class="info"
+              id="username"
+              type="text"
+              placeholder="유저명 입력"
+            />
+          </div>
+          <div class="div-input-list">
+            <label class="label">비밀번호</label>
+            <input
+              class="info"
+              id="password"
+              type="password"
+              placeholder="비밀번호 입력"
+            />
+          </div>
+        </div>
+        <div>
+          <button type="button" class="button-login" onclick="handleLogin()">
+            로그인
+          </button>
+        </div>
+      </form>
+      <div class="social-login">
+        <button type="button" class="social" onclick="kakaoLogin()">
+          <img class="icon" src="/static/img/user/kakao-icon.png" />
+        </button>
+        <!-- <button type="button" class="social" onclick="naverLogin()">
+          <img class="icon" src="/static/img/user/naver-icon.png" />
+        </button> -->
+        <button type="button" class="social" onclick="googleLogin()">
+          <img class="icon" src="/static/img/user/google-icon.png" />
+        </button>
+      </div>
+      <div>
+        <a class="register" href="/user/register.html">회원가입</a>
+        <button
+          class="reset-password"
+          onclick="resetPassword()"
+          style="background-color: transparent; border: none"
+        >
+          비밀번호 찾기
+        </button>
+      </div>
+    </div>
+    <div class="page-img"></div>
+    <script>
+      const frontendBaseUrl = "http://127.0.0.1:5500";
+      const backendBaseUrl = "http://127.0.0.1:8000";
+
+      // 카카오 로그인 페이지로 이동
+      async function kakaoLogin() {
+        try {
+          const response = await fetch(`${backendBaseUrl}/api/accounts/social/`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ social: "kakao" }),
+          });
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const dataUrl = await response.json();
+          const responseUrl = dataUrl.url;
+          window.location.href = responseUrl;
+        } catch (error) {
+          console.error("Error during Kakao login:", error);
+        }
+      }
+
+      // 구글 로그인 페이지로 이동
+      async function googleLogin() {
+        try {
+          const response = await fetch(`${backendBaseUrl}/api/accounts/social/`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ social: "google" }),
+          });
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const dataUrl = await response.json();
+          const responseUrl = dataUrl.url;
+          window.location.href = responseUrl;
+        } catch (error) {
+          console.error("Error during Google login:", error);
+        }
+      }
+
+      // // 네이버 로그인 페이지로 이동
+      // async function naverLogin() {
+      //   try {
+      //     const response = await fetch(`${backendBaseUrl}/api/accounts/social/`, {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify({ social: "naver" }),
+      //     });
+      //     if (!response.ok) {
+      //       throw new Error("Network response was not ok");
+      //     }
+      //     const dataUrl = await response.json();
+      //     const responseUrl = dataUrl.url;
+      //     window.location.href = responseUrl;
+      //   } catch (error) {
+      //     console.error("Error during Naver login:", error);
+      //   }
+      // }
+
+      // 로그인 처리
+      async function handleLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          const response = await fetch(
+            `${backendBaseUrl}/api/accounts/login/`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ username, password }),
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+
+          const data = await response.json();
+          localStorage.setItem("access", data.access);
+          localStorage.setItem("refresh", data.refresh);
+          localStorage.setItem("payload", JSON.stringify(data.payload));
+          window.location.href = `${frontendBaseUrl}/user/user-info-update.html`;
+        } catch (error) {
+          alert("로그인 실패");
+          console.error("Error during login:", error);
+        }
+      }
+
+      // 비밀번호 찾기 처리
+      function resetPassword() {
+        // 비밀번호 찾기 로직 추가
+        alert("비밀번호 찾기 기능은 아직 구현되지 않았습니다.");
+      }
+    </script>
+  </body>
+</html>
