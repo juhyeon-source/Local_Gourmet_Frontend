@@ -18,17 +18,12 @@
         </div>
         <div class="header-content">
             <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button>Search</button>
+                <input id="store-search" type="text" placeholder="매장명을 입력하세요.(최소 2글자)">
+                <button onclick="searchStores()">Search</button>
             </div>
         </div>
     </header>
-    <nav>
-        <button>매장 카테고리</button>
-        <button>지역 선택</button>
-    </nav>
-
-    
+ 
     <section id="store-categories">
         <h2>한식</h2>
         <div class="category" id="Korean">
@@ -39,10 +34,6 @@
             <button id="next" class="slider-button">›</button>
         </div>
     </section>
-
-
-
-
 
     <aside>
         <button id="recipe-button">레시피 만들기</button>
