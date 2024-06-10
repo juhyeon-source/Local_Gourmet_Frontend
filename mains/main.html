@@ -18,18 +18,13 @@
         </div>
         <div class="header-content">
             <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button>Search</button>
+                <input id="store-search" type="text" placeholder="매장명을 입력하세요.(최소 2글자)">
+                <button onclick="searchStores()">Search</button>
             </div>
         </div>
     </header>
-    <nav>
-        <button>매장 카테고리</button>
-        <button>지역 선택</button>
-    </nav>
-
     
-    <section id="store-categories">
+    <!-- <section id="store-categories">
         <h2>한식</h2>
         <div class="category" id="Korean">
 
@@ -38,11 +33,29 @@
             <div class="category-slider" id="category-slider"></div>
             <button id="next" class="slider-button">›</button>
         </div>
+    </section> -->
+
+    <section id="store-categories">
+        <!-- 검색 섹션 -->
+        <h2>검색</h2>
+        <div class="category-slider-container">
+            <button id="search-prev" class="slider-button" onclick="slidePrev()">‹</button>
+            <div class="category-slider" id="search-slider"></div>
+            <button id="search-next" class="slider-button" onclick="slideNext()">›</button>
+        </div>
+    
+        <!-- 스크랩퍼 섹션 -->
+        <h2>스크랩퍼</h2>
+        <div class="category-slider-container">
+            <button id="scrapper-prev" class="slider-button" onclick="slidePrev()">‹</button>
+            <div class="category-slider" id="scrapper-slider"></div>
+            <button id="scrapper-next" class="slider-button" onclick="slideNext()">›</button>
+        </div>
+    
+        <!-- 카테고리 섹션들 -->
+        <h2>카테고리</h2>
+            <!-- 카테고리 별 섹션 생성 -->
     </section>
-
-
-
-
 
     <aside>
         <button id="recipe-button">레시피 만들기</button>

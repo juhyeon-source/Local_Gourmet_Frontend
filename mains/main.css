@@ -27,7 +27,6 @@ header {
     align-items: center;
 }
 
-
 .auth-buttons {
     position: absolute;
     top: 10px; /* 헤더의 상단에서 20px 아래 */
@@ -81,25 +80,6 @@ header {
     border-left: 1px solid #ccc; /* 버튼 왼쪽에 테두리 추가 */
 }
 
-nav {
-    top: 100%; /* 헤더 바로 아래 */
-    margin-top: 0px; /* 헤더 아래에서 20px 간격 */
-    display: flex;
-    justify-content: center;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
-
-nav button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    color: #4CAF50;
-    border: 1px solid #4CAF50;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
 section {
     margin: 20px;
     padding: 20px;
@@ -116,11 +96,6 @@ section h2 {
 .category {
     margin-bottom: 40px;
 }
-
-
-
-
-
 
 .store-slider {
     display: flex;
@@ -141,13 +116,6 @@ section h2 {
     height: auto;
     border-radius: 5px;
 }    
-
-
-
-
-
-
-
 
 .slider-button {
     position: absolute;
@@ -188,11 +156,6 @@ section h2 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }    
-
-
-
-
-
 
 .star-rating {
     display: flex;
