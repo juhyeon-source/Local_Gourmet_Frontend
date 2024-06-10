@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Gourmet</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="chatbots.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="main.js"></script>
+    <script defer src="chatbots.js"></script>
+</head>
+<body>
+    <header>
+        <div class="auth-buttons">
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+        <div class="header-content">
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <button>매장 카테고리</button>
+        <button>지역 선택</button>
+    </nav>
+
+    
+    <section id="store-categories">
+        <h2>한식</h2>
+        <div class="category" id="Korean">
+
+        <div class="category-slider-container">
+            <button id="prev" class="slider-button">‹</button>
+            <div class="category-slider" id="category-slider"></div>
+            <button id="next" class="slider-button">›</button>
+        </div>
+    </section>
+
+
+
+
+
+    <aside>
+        <button id="recipe-button">레시피 만들기</button>
+        <div class="chat-container" id="chat-container">
+            <div class="chat-header">
+                <h1>👨‍🍳Local Gourmet👩‍🍳Recepi Bot</h1>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div id="loading" class="loading">
+                <div class="loader"></div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="원하는 레시피를 입력해주세요!">
+                <button id="sendButton">레시피 받기👨‍🍳👩‍🍳</button>
+            </div>
+        </div>
+    </aside>
+    <footer>
+        <p>&copy; 2023 Local Gourmet</p>
+    </footer>
+</body>
+</html>

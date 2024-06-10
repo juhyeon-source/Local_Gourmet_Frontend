@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>프로필 페이지</title>
+    <link rel="stylesheet" href="/static/css/user/profile.css" />
+  </head>
+  <body>
+    <div class="profile-container">
+      <h1>프로필 정보</h1>
+      <div>
+        <label>유저명:</label>
+        <span id="username"></span>
+      </div>
+      <div>
+        <label>이름:</label>
+        <span id="first_name"></span>
+      </div>
+      <div>
+        <label>성:</label>
+        <span id="last_name"></span>
+      </div>
+      <div>
+        <label>성별:</label>
+        <span id="gender"></span>
+      </div>
+      <div>
+        <label>주소 (시):</label>
+        <span id="address_si"></span>
+      </div>
+      <div>
+        <label>주소 (구):</label>
+        <span id="address_gu"></span>
+      </div>
+      <div>
+        <label>상세 주소:</label>
+        <span id="address_detail"></span>
+      </div>
+      <div>
+        <label>전화번호:</label>
+        <span id="phone_number"></span>
+      </div>
+      <div>
+        <label>프로필 사진:</label>
+        <img id="profile_picture" src="" alt="프로필 사진" />
+      </div>
+      <button type="button" onclick="redirectToEditProfile()">
+        프로필 편집
+      </button>
+
+      <h2>북마크</h2>
+      <div id="bookmark-list"></div>
+      <h2>내가 올린 게시글</h2>
+      <div id="post-list"></div>
+      <h2>내 댓글</h2>
+      <div id="comment-list"></div>
+    </div>
+    <script>
+      const frontendBaseUrl = "http://127.0.0.1:5500";
+      const backendBaseUrl = "http://127.0.0.1:8000";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        fetchProfile();
+        fetchBookmarks();
+        fetchPosts();
+        fetchComments();
+      });
+
+      function redirectToEditProfile() {
+        window.location.href = `${frontendBaseUrl}/user/user-info-update.html`;
+      }
+
+      async function fetchProfile() {
+        try {
+          const response = await fetch(`${backendBaseUrl}/api/accounts/me/`, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("access")}`,
+            },
+          });
+          if (response.ok) {
+            const data = await response.json();
+            document.getElementById("username").textContent = data.username;
+            document.getElementById("first_name").textContent = data.first_name;
+            document.getElementById("last_name").textContent = data.last_name;
+            document.getElementById("gender").textContent =
+              data.gender === "M"
+                ? "남성"
+                : data.gender === "F"
+                ? "여성"
+                : "선택안함";
+            document.getElementById("address_si").textContent = data.address_si;
+            document.getElementById("address_gu").textContent = data.address_gu;
+            document.getElementById("address_detail").textContent =
+              data.address_detail;
+            document.getElementById("phone_number").textContent =
+              data.phone_number;
+            if (data.profile_picture) {
+              document.getElementById(
+                "profile_picture"
+              ).src = `${backendBaseUrl}${data.profile_picture}`;
+            } else {
+              document.getElementById("profile_picture").src =
+                "/static/img/default-profile.jpg";
+            }
+          } else {
+            console.error("Failed to fetch profile data");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      async function fetchBookmarks() {
+        try {
+          const response = await fetch(`${backendBaseUrl}/api/accounts/me/bookmarks/`, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("access")}`,
+            },
+          });
+          if (response.ok) {
+            const data = await response.json();
+            const bookmarks = data.results;
+            // console.log(bookmarks)
+            const bookmarkList = document.getElementById("bookmark-list");
+            bookmarkList.innerHTML = "";
+            bookmarks.forEach((bookmark) => {
+              const div = document.createElement("div");
+              div.innerText = `북마크한 가게: ${bookmark.store}`;
+              bookmarkList.appendChild(div);
+            });
+          } else {
+            console.error("Failed to fetch bookmarks");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      async function fetchPosts() {
+        try {
+          const response = await fetch(
+            `${backendBaseUrl}/api/accounts/me/reviews/`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("access")}`,
+              },
+            }
+          );
+          if (response.ok) {
+            const data = await response.json();
+            const posts = data.results;
+            const postList = document.getElementById("post-list");
+            postList.innerHTML = "";
+            // console.log(posts);
+            posts.forEach((post) => {
+              const div = document.createElement("div");
+              div.innerText = `게시글 제목: ${post.review_content}`;
+              postList.appendChild(div);
+            });
+          } else {
+            console.error("Failed to fetch posts");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      async function fetchComments() {
+        try {
+          const response = await fetch(`${backendBaseUrl}/api/accounts/me/comments/`, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("access")}`,
+            },
+          });
+          if (response.ok) {
+            const data = await response.json();
+            const comments = data.results;
+            const commentList = document.getElementById("comment-list");
+            commentList.innerHTML = "";
+            console.log(comments)
+            comments.forEach((comment) => {
+              const div = document.createElement("div");
+              div.innerText = `댓글 내용: ${comment.comment_content}`;
+              commentList.appendChild(div);
+            });
+          } else {
+            console.error("Failed to fetch comments");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+    </script>
+  </body>
+</html>
