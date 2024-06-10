@@ -27,7 +27,6 @@ header {
     align-items: center;
 }
 
-
 .auth-buttons {
     position: absolute;
     top: 10px; /* 헤더의 상단에서 20px 아래 */
@@ -98,11 +97,6 @@ section h2 {
     margin-bottom: 40px;
 }
 
-
-
-
-
-
 .store-slider {
     display: flex;
     overflow-x: auto;
@@ -122,13 +116,6 @@ section h2 {
     height: auto;
     border-radius: 5px;
 }    
-
-
-
-
-
-
-
 
 .slider-button {
     position: absolute;
@@ -169,11 +156,6 @@ section h2 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }    
-
-
-
-
-
 
 .star-rating {
     display: flex;
