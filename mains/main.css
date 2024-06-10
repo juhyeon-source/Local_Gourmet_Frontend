@@ -39,7 +39,7 @@ header {
 .auth-buttons button {
     padding: 10px 15px;
     background-color: #ffffff;
-    color: #4CAF50;
+    color: #f47827;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -69,6 +69,33 @@ header {
     border: none;
     box-sizing: border-box;
 }
+
+
+/* 구분선 스타일 */
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 20px 0;
+}
+
+
+/* 검색 결과 섹션 스타일 */
+#search-results {
+    margin: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    height: 200px;
+    overflow-y: auto;
+}
+
+#search-results p {
+    text-align: center;
+    color: #888;
+}
+
 
 .search-container button {
     padding: 10px 20px;
@@ -100,6 +127,12 @@ nav button {
     cursor: pointer;
 }
 
+
+
+
+
+
+
 section {
     margin: 20px;
     padding: 20px;
@@ -110,57 +143,7 @@ section {
 
 section h2 {
     margin-top: 0;
-    color: #4CAF50;
-}
-
-.category {
-    margin-bottom: 40px;
-}
-
-
-
-
-
-
-.store-slider {
-    display: flex;
-    overflow-x: auto;
-}    
-
-.store-slider .store-item {
-    flex: 0 0 150px;
-    margin: 0 10px;
-    background: #f4f4f4;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-}    
-
-.store-slider .store-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}    
-
-
-
-
-
-
-
-
-.slider-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    outline: none;
+    color: #f47827;
 }
 
 .category-slider-container {
@@ -169,7 +152,7 @@ section h2 {
     overflow: hidden;
     margin: 20px auto;
     padding: 20px;
-    background: #fff;
+    background: #ffffffb6;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }    
@@ -189,6 +172,19 @@ section h2 {
     text-align: center;
 }    
 
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #f47827;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    outline: none;
+}
 
 
 
