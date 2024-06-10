@@ -1,9 +1,21 @@
 'use strict';
 
+let loggedInUserId = null;
+
 document.addEventListener('DOMContentLoaded', function () {
-  // 페이지 로드 시 모든 스토어를 가져오지 않음
+  getLoggedInUser(); // 로그인된 유저 정보를 가져오기
   getReviews(currentPage); // 페이지 로드 시 리뷰 목록 가져오기
 });
+
+function getLoggedInUser() {
+  axios.get('http://127.0.0.1:8000/api/user/')
+    .then(response => {
+      loggedInUserId = response.data.id;
+    })
+    .catch(error => {
+      console.error('Error fetching logged-in user data:', error);
+    });
+}
 
 function searchStores() {
   const searchQuery = document.getElementById('store-search').value;
@@ -39,7 +51,7 @@ const reviewCurrentPageSpan = document.getElementById('review-current-page');
 let currentPage = 1;
 
 function getReviews(page) {
-  axios.get(`http://127.0.0.1:8000/api/reviews/list/12/?page=${page}`)
+  axios.get(`http://127.0.0.1:8000/api/reviews/list/12/?page_size=${page}`)
     .then(response => {
       console.log('API Response:', response);
       const reviewData = response.data.results;
@@ -152,7 +164,7 @@ function addReviewToList(review) {
 
 // 댓글 가져오는 함수
 function getComments(reviewId, page) {
-  axios.get(`http://127.0.0.1:8000/api/reviews/${reviewId}/comments/?page=${page}`)
+  axios.get(`http://127.0.0.1:8000/api/reviews/${reviewId}/comments/?page_size=${page}`)
     .then(response => {
       const commentsData = response.data.results;
       updateCommentList(commentsData);
@@ -176,6 +188,17 @@ function updateCommentList(commentsData) {
   commentsData.forEach(comment => {
     const listItem = document.createElement('li');
     listItem.textContent = `${comment.username}: ${comment.comment_content}`;
+    if (comment.user_id === loggedInUserId) {
+      const editButton = document.createElement('button');
+      editButton.textContent = 'Edit';
+      editButton.onclick = () => editComment(comment.id);
+      listItem.appendChild(editButton);
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.onclick = () => deleteComment(comment.id);
+      listItem.appendChild(deleteButton);
+    }
     commentListElement.appendChild(listItem);
   });
 }
@@ -198,4 +221,41 @@ function updateCommentPagination(data, reviewId) {
       getComments(reviewId, commentCurrentPage);
     }
   };
+}
+
+function editComment(commentId) {
+  // 수정 로직을 여기에 추가
+  const newContent = prompt('Enter new comment content:');
+  if (newContent) {
+    axios.put(`http://127.0.0.1:8000/api/comments/${commentId}/`, {
+      comment_content: newContent
+    })
+      .then(response => {
+        alert('Comment updated successfully!');
+        // 현재 페이지 댓글을 다시 로드
+        const reviewId = document.getElementById('review-id').textContent;
+        getComments(reviewId, commentCurrentPage);
+      })
+      .catch(error => {
+        console.error('Error updating comment:', error);
+        alert('Failed to update comment. Please check the console for more details.');
+      });
+  }
+}
+
+function deleteComment(commentId) {
+  // 삭제 로직을 여기에 추가
+  if (confirm('Are you sure you want to delete this comment?')) {
+    axios.delete(`http://127.0.0.1:8000/api/comments/${commentId}/`)
+      .then(response => {
+        alert('Comment deleted successfully!');
+        // 현재 페이지 댓글을 다시 로드
+        const reviewId = document.getElementById('review-id').textContent;
+        getComments(reviewId, commentCurrentPage);
+      })
+      .catch(error => {
+        console.error('Error deleting comment:', error);
+        alert('Failed to delete comment. Please check the console for more details.');
+      });
+  }
 }
