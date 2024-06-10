@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Detail</title>
+    <link rel="stylesheet" href="reviews_detail.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="reviews_detail.js"></script>
+</head>
+<body>
+    <h1>Review Detail</h1>
+    <div id="review-detail">
+        <p>ID: <span id="review-id"></span></p>
+        <p>Store ID: <span id="store-id"></span></p>
+        <p>Store Name: <span id="store-name"></span></p>
+        <p>Username: <span id="username"></span></p>
+        <p>Score: <span id="score"></span></p>
+        <p>Review Content: <span id="review-content"></span></p>
+        <p>Image: <span id="image"></span></p>
+        <p>Created Date: <span id="created-at"></span></p>
+        <p>Updated Date: <span id="updated-at"></span></p>
+
+        <h3>Comment List</h3>
+        <ul id="comment-list"></ul>
+        <div id="comment-pagination">
+            <button id="comment-prev-page" disabled>Previous</button>
+            <span id="comment-current-page">Page 1</span>
+            <button id="comment-next-page">Next</button>
+        </div>
+    </div>
+</body>
+</html>

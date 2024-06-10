@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Review</title>
+    <link rel="stylesheet" href="reviews_create.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="reviews_create.js"></script>
+</head>
+<body>
+    <h1>Create Review</h1>
+    <div id="review-create">
+        <form id="review-form" method="post" enctype="multipart/form-data">
+            <label for="store-search">가게 검색: </label>
+            <input id="store-search" type="text" name="store" placeholder="가게명을 입력하세요.(최소 2글자)" oninput="searchStores()"><br>
+            <label for="store">가게 : </label>
+            <select id="store" name="store" required>
+                <!-- 여기에 JavaScript로 store 목록을 추가할 것입니다 -->
+            </select><br>
+            <label for="score">점수 : </label>
+            <select id="score" name="score" required>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3">3</option>
+                <option value="3.5">3.5</option>
+                <option value="4">4</option>
+                <option value="4.5">4.5</option>
+                <option value="5">5</option>
+            </select><br>
+            <label for="image">이미지 : </label>
+            <input type="file" id="image" name="image" accept="image/png, image/gif, image/jpeg" required><br>
+            <label for="review-content">내용 : </label>
+            <textarea id="review-content" name="review_content" placeholder="리뷰를 써주세요." required></textarea><br>
+            <input type="submit" value="저장">
+        </form>
+    </div>
+</body>
+</html>

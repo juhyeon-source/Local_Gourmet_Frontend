@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('prev').addEventListener('click', slidePrev);
     document.getElementById('next').addEventListener('click', slideNext);
+    document.getElementById('write-review-button').addEventListener('click', function() {
+        window.location.href = '../reviews/reviews_create.html'; // 리뷰 작성 페이지로 이동
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function() {
