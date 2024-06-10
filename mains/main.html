@@ -19,34 +19,30 @@
         </div>
         <div class="header-content">
             <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button>Search</button>
+                <input id="store-search" type="text" placeholder="매장명을 입력하세요.(최소 2글자)">
+                <button onclick="searchStores()">Search</button>
             </div>
         </div>
     </header>
 
-
-    <section id="search-results">
-        <p>원하는 매장을 검색해보세요 ! </p>
-
+    <section id="search-results-slider">
+        <!-- 검색 결과 슬라이드 카드들이 여기 추가됩니다. -->
     </section>
 
-
-
-    <!-- 구분선 추가 -->
-    <div class="divider"></div>
-
-
+<!-- 카테고리 섹션들을 포함하는 컨테이너 추가 -->
+<div id="category-sections-container">
     <section id="store-categories">
+        <h2 class="category-header">음식 카테고리별 매장</h2> <!-- class 추가 -->
         <!-- 카테고리 슬라이드들이 여기 추가됩니다. -->
-        <button id="reload-button">Reload Stores</button>
     </section>
+</div>
+
 
     <aside>
-        <button id="recipe-button">레시피 만들기</button>
+        <button id="recipe-button">👨‍🍳Recepi Bot👩‍🍳</button>
         <div class="chat-container" id="chat-container">
             <div class="chat-header">
-                <h1>👨‍🍳Local Gourmet👩‍🍳Recepi Bot</h1>
+                <h1>👨‍🍳Recepi Bot👩‍🍳</h1>
             </div>
             <div class="chat-messages" id="chatMessages"></div>
             <div id="loading" class="loading">
@@ -63,3 +59,4 @@
     </footer>
 </body>
 </html>
+

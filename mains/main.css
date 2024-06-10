@@ -1,43 +1,56 @@
+
+/* 기본 스타일 초기화 */
 * {
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* 본문 스타일 */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    width:100%;
-    height:100vh;
+    padding-bottom: 110px; /* 푸터와의 여백을 위해 아래쪽 패딩 추가 */
+    width: 100%;
+    height: 100%;
     background-color: #f9f9f9;
     color: #333;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
+/* 헤더 스타일 */
 header {
-    position: relative;
+    position: fixed; /* 헤더를 고정하여 스크롤 시에도 항상 상단에 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
     background: #ffffff;
     background-image: url('images/header-bg.png'); /* 실제 이미지 경로 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: #ffffff;
-    padding: 100px; /* 패딩 값을 조절하여 내용물의 위치 조정 */
-    height: 400px;
+    padding: 20px; /* 패딩을 줄여서 전체 높이를 줄임 */
+    height: 20vh; /* 화면 높이의 20%로 설정 */
     text-align: center;
     box-sizing: border-box;
+    z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
+    min-height: 500px; /* 최소 높이 설정 */
+    max-height: 500px; /* 최대 높이 설정 */
 }
 
+/* 헤더 콘텐츠 스타일 */
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* 인증 버튼 스타일 */
 .auth-buttons {
     position: absolute;
-    top: 10px; /* 헤더의 상단에서 20px 아래 */
+    top: 10px; /* 헤더의 상단에서 10px 아래 */
     right: 20px; /* 헤더의 오른쪽 끝에서 20px 떨어진 위치 */
     display: flex;
     gap: 20px; /* 버튼 사이 간격 20px */
@@ -52,57 +65,43 @@ header {
     cursor: pointer;
 }
 
+
+/* 검색 컨테이너 스타일 */
 .search-container {
-    position: absolute;
-    top: 100%; /* 헤더 바로 아래 */
-    margin-top: -80px; /* 헤더 아래에서 20px 간격 */
+    position: absolute; /* 검색 컨테이너를 절대 위치로 설정 */
+    top: calc(400px + 0px); /* 헤더 높이 400px + 50px 아래로 위치 조정 */
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 40px); /* 좌우 여백을 위해 너비 조정 */
-    max-width: 1000px; /* 최대 너비 설정 */
+    width: 1000px; /* 가로 사이즈 */
+    height: 50px; /* 높이 사이즈 */
     display: flex;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     padding: 0 20px; /* 좌우 여백 */
-    background-color: rgba(255, 255, 255, 0.7); /* 배경색을 70% 불투명하게 설정 */
+    background-color: rgba(255, 255, 255); /* 배경색을 70% 불투명하게 설정 */
     border: 1px solid #ccc; /* 얇은 테두리 추가 */
     border-radius: 5px; /* 둥근 모서리 */
+    z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
+
 }
 
+/* 검색 컨테이너 입력 필드 스타일 */
 .search-container input {
     flex-grow: 1;
     padding: 10px;
+    height: 100%; /* 높이 사이즈 */
+    padding: 0 100px; /* 좌우 여백 */
+
     border-radius: 5px 0 0 5px;
     border: none;
     box-sizing: border-box;
 }
 
-/* 구분선 스타일 */
-.divider {
-    width: 100%;
-    height: 1px;
-    background-color: #e0e0e0;
-    margin: 20px 0;
-}
-
-/* 검색 결과 섹션 스타일 */
-#search-results {
-    margin: 20px;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    height: 200px;
-    overflow-y: auto;
-}
-
-#search-results p {
-    text-align: center;
-    color: #888;
-}
-
+/* 검색 버튼 스타일 */
 .search-container button {
     padding: 10px 20px;
+    height: 100%; /* 높이 사이즈 */
     border-radius: 0 5px 5px 0;
     border: none;
     background-color: #ffffff;
@@ -112,43 +111,104 @@ header {
     border-left: 1px solid #ccc; /* 버튼 왼쪽에 테두리 추가 */
 }
 
-nav {
-    top: 100%; /* 헤더 바로 아래 */
-    margin-top: 0px; /* 헤더 아래에서 20px 간격 */
-    display: flex;
-    justify-content: center;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
-
-nav button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    background-color: #ffffff;
-    color: #4CAF50;
-    border: 1px solid #4CAF50;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-/* 섹션 스타일 */
-section {
-    margin: 20px auto; /* 자동 마진으로 중앙 정렬 */
-    padding: 20px;
-    background: #ffffff;
+/* 검색 결과 슬라이더 섹션 스타일 */
+#search-results-slider {
+    position: relative; /* 요소를 문서 흐름에 따라 배치 */
+    top: 530px; /* 헤더 높이 500px + 30px 여백 */
+    width: calc(100% - 900px); /* 좌우 여백 */
+    margin: 0 auto; /* 중앙 정렬 */
+    padding: 20px; /* 패딩 추가 */
+    background: #ffffffb6;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    max-width: calc(100% - 300px); /* 좌우 150px 여백을 고려한 최대 너비 */
+    overflow: hidden;
+    height: 500px; /* 기본 높이 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 다른 요소보다 상위에 나타나도록 설정 */
 }
 
-section h2 {
-    margin-top: 0;
-    color: #f47827;
-    padding: 0 150px; /* 좌우 150px 여백 */
-    box-sizing: border-box; /* 패딩을 포함한 너비 계산 */
+#search-results-slider .card {
+    width: 300px;
+    text-align: center;
+    margin: 5px; /* 상하좌우 여백 5px */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#search-results-slider .result-img {
+    width: 270px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 10px;
+    padding: 3px; /* 이미지 내부 여백 설정 */
+}
+
+#search-results-slider .result-name {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+#search-results-slider .search-placeholder {
+    font-size: 18px;
+    color: #888;
+}
+
+
+
+
+
+
+/* 카테고리 섹션들을 포함하는 컨테이너 스타일 */
+#category-sections-container {
+    position: relative; /* 요소를 문서 흐름에 따라 배치하고, 필요 시 top, left 등으로 조정 */
+    margin-top: 600px; /* #search-results-slider 아래로 20px 여백 */
+    width: 100%;
+}
+
+/* 카테고리 헤더 스타일 */
+.category-header {
+    text-align: center; /* 텍스트 중앙 정렬 */
+    padding: 20px 0;
+}
+
+/* 카테고리 섹션 스타일 */
+.category-section {
+    padding-left: 450px; /* 좌우 여백 450px씩 추가하여 총 900px 여백 */
+    padding-right: 450px;
+    margin-bottom: 30px; /* 각 섹션 사이에 여백 추가 */
+}
+
+/* 카테고리 이름 스타일 */
+.category-name {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px; /* 이름과 슬라이더 사이의 여백 */
+}
+
+/* 카테고리 슬라이더 컨테이너 스타일 */
+.category-slider-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background: #ffffffb6;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* 넘어가는 콘텐츠를 숨김 */
+}
+
+/* 카테고리 슬라이더 스타일 */
+.category-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
 
 /* 슬라이더 버튼 스타일 */
 .slider-button {
@@ -159,41 +219,25 @@ section h2 {
     color: #fff;
     border: none;
     border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     outline: none;
-    z-index: 10; /* 버튼이 항상 위에 보이도록 설정 */
+    z-index: 1000; /* 다른 요소보다 최상위로 나타나도록 설정 */
 }
 
 .slider-button.left {
-    left: 0px; /* 좌측 0px 여백 */
+    left: 15px; /* 좌측 여백 */
 }
 
 .slider-button.right {
-    right: 0px; /* 우측 0px 여백 */
-}
-
-/* 카테고리 슬라이더 컨테이너 */
-.category-slider-container {
-    position: relative;
-    width: calc(100% - 300px); /* 좌우 300px 여백을 제외한 너비 */
-    margin: 20px auto;
-    padding: 20px;
-    background: #ffffffb6;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.category-slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+    right: 15px; /* 우측 여백 */
 }
 
 /* 카드 스타일 */
 .card {
-    width: 150px;
+    width: 400px;
+    height: 450px; /* 높이를 지정하여 모든 카드의 높이를 동일하게 설정 */
     text-align: center;
     margin: 5px; /* 상하좌우 여백 5px */
     padding: 10px;
@@ -204,21 +248,20 @@ section h2 {
 }
 
 .store-img {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     object-fit: cover;
     border-radius: 10px;
 }
 
 .store-name {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 25px;
     color: #333;
 }
 
 
-
-
+/* 별점 스타일 */
 .star-rating {
     display: flex;
     justify-content: center;
@@ -235,14 +278,7 @@ section h2 {
     color: #FFD700;
 }    
 
-#prev {
-    left: 10px;
-}
-
-#next {
-    right: 10px;
-}
-
+/* 레시피 버튼 스타일 */
 #recipe-button {
     position: fixed;
     bottom: 110px; /* 푸터 위로 30px */
@@ -256,6 +292,7 @@ section h2 {
     outline: none;
 }
 
+/* 채팅 컨테이너 스타일 */
 .chat-container {
     width: 400px;
     height: 600px;
@@ -267,12 +304,15 @@ section h2 {
     position: fixed;
     bottom: 170px; /* 버튼 위로 30px */
     right: 20px;
+    z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
+
 }
 
 .chat-container.active {
     display: flex; /* active 클래스가 추가되면 보이게 */
 }
 
+/* 채팅 헤더 스타일 */
 .chat-header {
     background-color: #f47827;
     color: white;
@@ -282,6 +322,7 @@ section h2 {
     border-top-right-radius: 10px;
 }
 
+/* 채팅 메시지 스타일 */
 .chat-messages {
     flex: 1;
     padding: 10px;
@@ -299,7 +340,7 @@ section h2 {
 }
 
 .user {
-    background-color: #007bff;
+    background-color: #e05a57;
     color: white;
     text-align: right;
     margin-left: auto;
@@ -311,6 +352,7 @@ section h2 {
     margin-right: auto;
 }
 
+/* 채팅 입력 스타일 */
 .chat-input {
     padding: 10px;
     background-color: #f8f9fa;
@@ -338,6 +380,7 @@ section h2 {
     outline: none;
 }
 
+/* 로딩 스타일 */
 .loading {
     display: none;
     text-align: center;
@@ -350,18 +393,25 @@ section h2 {
 
 .loader {
     border: 4px solid #f3f3f3;
-    border-top: 4px solid #3498db;
+    border-top: 4px solid #e05a57;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     animation: spin 2s linear infinite;
 }
 
+
+
+
+
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
+
+/* 푸터 스타일 */
 footer {
     background: #e05a57;
     color: #ffffff;
@@ -369,9 +419,10 @@ footer {
     padding: 10px 0;
     position: fixed;
     width: 100%;
-    bottom: 0;
+    bottom: 0px;
 }
 
+/* 슬라이더 컨테이너 애니메이션 */
 .slider-container.animated {
     -webkit-transition: left .3s ease-in;
     transition: left .3s ease-in;
@@ -381,3 +432,8 @@ blockquote {
     color: #636363;
     font-weight: 300;
 }
+
+
+
+
+
