@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Gourmet</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="chatbots.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="main.js"></script>
+    <script defer src="chatbots.js"></script>
+
 </head>
 <body>
     <header>
@@ -24,7 +27,8 @@
 
 
     <section id="search-results">
-        <p>검색을 통해 매장을 조회할 수 있습니다</p>
+        <p>원하는 매장을 검색해보세요 ! </p>
+
     </section>
 
 
@@ -33,11 +37,9 @@
     <div class="divider"></div>
 
 
-
-
     <section id="store-categories">
-        <h2>음식 카테고리별 매장</h2>
         <!-- 카테고리 슬라이드들이 여기 추가됩니다. -->
+        <button id="reload-button">Reload Stores</button>
     </section>
 
     <aside>
