@@ -1,13 +1,34 @@
 header {
+    position: relative;
+    background: #ffffff;
+    background-image: url('../mains/images/header-bg.png'); /* 실제 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    padding: 100px; /* 패딩 값을 조절하여 내용물의 위치 조정 */
+    height: 400px;
     text-align: center;
-    margin-bottom: 20px;
-    background-color: #fff;
-    
+    box-sizing: border-box;
 }
 
-.LocalGourmet_Logo {
-    width: 140px;
-    height: 70px;
+nav {
+    top: 100%; /* 헤더 바로 아래 */
+    margin-top: 0px; /* 헤더 아래에서 20px 간격 */
+    display: flex;
+    justify-content: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+nav button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 body {
@@ -79,11 +100,12 @@ body {
     background-color: #4ecdc4;
 }
 
-#footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 10px;
+footer {
+    background: #e05a57;
+    color: #ffffff;
     text-align: center;
-    background-color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }

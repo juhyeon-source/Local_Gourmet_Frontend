@@ -67,7 +67,7 @@ function populateSlider(category, stores) {
             imgItem.src = store.image // 이미지 URL 설정
             storeName.className = 'store-name';  // 매장 이름 클래스 추가
             storeName.textContent = store.store_name;  // 매장 이름 설정           
-            storeLink.href = `stores_detail.html?storeId=${store.id}`;  // 링크 URL 설정
+            storeLink.href = `../stores/stores_detail.html?storeId=${store.id}`;  // 링크 URL 설정
             storeLink.target = '_blank';  // 링크를 새 창에서 열기          
             card.className = 'card';  // 카드 클래스 추가
             
