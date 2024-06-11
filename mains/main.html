@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +11,11 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="main.js"></script>
     <script defer src="chatbots.js"></script>
-
 </head>
+
+
 <body>
-    <header>
+    <header id="main-header">
         <div class="auth-buttons">
             <button>Login</button>
             <button>Sign Up</button>
@@ -25,17 +28,30 @@
         </div>
     </header>
 
-    <section id="search-results-slider">
-        <!-- 검색 결과 슬라이드 카드들이 여기 추가됩니다. -->
-    </section>
 
-<!-- 카테고리 섹션들을 포함하는 컨테이너 추가 -->
-<div id="category-sections-container">
-    <section id="store-categories">
-        <h2 class="category-header">음식 카테고리별 매장</h2> <!-- class 추가 -->
-        <!-- 카테고리 슬라이드들이 여기 추가됩니다. -->
-    </section>
-</div>
+
+<!-- 검색 결과 섹션 -->
+<section id="search-results-slider">
+    <div class="search-results-container">
+        <button class="slider-button left" id="search-slide-left">‹</button>
+        <div class="category-slider" id="search-results-container">
+            <p class="search-placeholder">매장을 검색해주세요</p>
+        </div>
+        <button class="slider-button right" id="search-slide-right">›</button>
+    </div>
+</section>
+
+    
+
+    <!-- 카테고리 섹션들을 포함하는 컨테이너 -->
+    <div id="category-sections-container">
+        <section id="store-categories">
+            <h2 class="category-header">음식 카테고리별 매장</h2>
+            <!-- 카테고리 슬라이드들이 여기 추가됩니다. -->
+        </section>
+    </div>
+
+
 
 
     <aside>
@@ -59,4 +75,10 @@
     </footer>
 </body>
 </html>
+
+
+
+
+
+
 
