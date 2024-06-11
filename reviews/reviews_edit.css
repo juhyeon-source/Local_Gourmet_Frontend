@@ -8,7 +8,7 @@ body {
 }
 
 h2 {
-    color: #4CAF50;
+    color: #ff6b6b;
     text-align: center;
     margin-top: 20px;
 }
@@ -50,7 +50,7 @@ input[type="file"] {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #ff6b6b;
     color: white;
     border: none;
     border-radius: 5px;
@@ -59,20 +59,61 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #ff6b6b;
 }
 
 /* 추가 스타일 */
 input[type="file"]::file-selector-button {
     padding: 5px 10px;
-    border: 1px solid #4CAF50;
+    border: 1px solid #ff6b6b;
     border-radius: 5px;
-    background-color: #4CAF50;
+    background-color: #ff6b6b;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 input[type="file"]::file-selector-button:hover {
-    background-color: #45a049;
+    background-color: #ff6b6b;
+}
+
+/* 헤더 스타일 */
+header {
+    position: fixed; /* 헤더를 고정하여 스크롤 시에도 항상 상단에 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    background-image: url('../mains/images/header-bg.png'); /* 실제 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    padding: 20px; /* 패딩을 줄여서 전체 높이를 줄임 */
+    height: 20vh; /* 화면 높이의 20%로 설정 */
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
+    min-height: 500px; /* 최소 높이 설정 */
+    max-height: 500px; /* 최대 높이 설정 */
+}
+
+/* 푸터 스타일 */
+footer {
+    background: #c62c2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+
+/* 메인 컨텐츠 스타일 */
+section {
+    padding-top: 500px; /* 헤더 높이와 일치 */
+    padding-left: 450px; /* 좌우 여백 */
+    padding-right: 450px; /* 좌우 여백 */
+    margin-bottom: 30px; /* 각 섹션 사이에 여백 추가 */
+    text-align: center;
 }

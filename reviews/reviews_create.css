@@ -1,18 +1,61 @@
-/* 공통 스타일 */
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 본문 스타일 */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-bottom: 110px; /* 푸터와의 여백을 위해 아래쪽 패딩 추가 */
+    width: 100%;
+    height: 100%;
     background-color: #f9f9f9;
     color: #333;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
-h1 {
-    color: #4CAF50;
+/* 헤더 스타일 */
+header {
+    position: fixed; /* 헤더를 고정하여 스크롤 시에도 항상 상단에 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    background-image: url('../mains/images/header-bg.png'); /* 실제 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    padding: 20px; /* 패딩을 줄여서 전체 높이를 줄임 */
+    height: 20vh; /* 화면 높이의 20%로 설정 */
     text-align: center;
-    margin-top: 20px;
+    box-sizing: border-box;
+    z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
+    min-height: 500px; /* 최소 높이 설정 */
+    max-height: 500px; /* 최대 높이 설정 */
 }
 
+/* 메인 컨텐츠 스타일 */
+section {
+    padding-top: 500px; /* 헤더 높이와 일치 */
+    padding-left: 450px; /* 좌우 여백 */
+    padding-right: 450px; /* 좌우 여백 */
+    margin-bottom: 30px; /* 각 섹션 사이에 여백 추가 */
+    text-align: center;
+}
+
+/* 섹션 제목 스타일 */
+h1 {
+    color: #ff6b6b;
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+/* 리뷰 생성 폼 스타일 */
 #review-create {
     max-width: 800px;
     margin: 20px auto;
@@ -20,8 +63,10 @@ h1 {
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: left; /* 폼 내부는 좌측 정렬 */
 }
 
+/* 폼 요소 스타일 */
 label {
     display: block;
     margin-bottom: 8px;
@@ -42,9 +87,20 @@ textarea {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #ff6b6b;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* 푸터 스타일 */
+footer {
+    background: #c62c2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
 }
