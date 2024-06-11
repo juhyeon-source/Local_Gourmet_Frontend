@@ -7,14 +7,14 @@ body {
     color: #333;
 }
 
-h1 {
+h2 {
     color: #4CAF50;
     text-align: center;
     margin-top: 20px;
 }
 
-#review-detail {
-    max-width: 800px;
+form {
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     background: #ffffff;
@@ -22,34 +22,17 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-p {
-    margin: 10px 0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-button {
-    padding: 5px 10px;
-    margin-left: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
 textarea {
     width: 100%;
-    height: 100px;
+    height: 150px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
