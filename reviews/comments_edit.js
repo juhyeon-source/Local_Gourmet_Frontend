@@ -24,16 +24,8 @@ function getCommentDetails() {
         .then(response => {
             console.log(response)
             const commentContent = response.data.comment_content;
+            console.log(commentContent)
             document.getElementById('comment-content').value = commentContent; 
-            const commentUsername = response.data.results[0].username; 
-            console.log(commentUsername) // juhyeonnn
-            if (checkUserPermission(commentUsername)) {
-                document.getElementById('comment-edit').style.display = 'block'; 
-            } else {
-                alert('이 댓글을 수정할 권한이 없습니다.');
-                document.getElementById('comment-content').disabled = true;
-                document.querySelector('#comment-edit input[type="submit"]').disabled = true;
-            }
         })
         .catch(error => {
             console.error('Error fetching comment details:', error);
@@ -41,20 +33,6 @@ function getCommentDetails() {
         });
 }
 
-function checkUserPermission(commentUsername) {
-    const loggedInUserId = getUserId(); 
-    console.log(loggedInUserId)
-    return loggedInUserId === commentUsername;
-}
-
-const loggedInUsername = "juhyeonnn"; 
-localStorage.setItem('username', loggedInUsername);
-
-
-function getUserId() {
-    console.log(localStorage)
-    return localStorage.getItem('username');
-}
 
 document.getElementById('comment-edit').addEventListener('submit', function(event) {
     event.preventDefault(); 
@@ -66,6 +44,7 @@ document.getElementById('comment-edit').addEventListener('submit', function(even
         return;
     }
 
+    console.log(localStorage)
     const token = localStorage.getItem('access');
     if (!token) {
         console.error('로그인이 필요합니다.');

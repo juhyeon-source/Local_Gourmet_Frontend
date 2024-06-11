@@ -21,7 +21,8 @@ function getLoggedInUser() {
     })
         .then(response => {
             loggedInUserId = response.data.id;
-            loggedInUsername = response.data.username; 
+            loggedInUsername = response.data.username;
+            localStorage.setItem('username', loggedInUsername);
             // 유저 정보를 성공적으로 가져오면 리뷰 디테일을 가져오는 함수 호출
             getReviewDetail();
         })
@@ -58,6 +59,23 @@ function getReviewDetail() {
             document.getElementById('created-at').textContent = review.created_at;
             document.getElementById('updated-at').textContent = review.updated_at;
 
+            if (review.username === loggedInUsername) {
+                const reviewButtons = document.getElementById('review-buttons');
+                if (!document.getElementById('edit-button') && !document.getElementById('delete-button')) {
+                    const editButton = document.createElement('button');
+                    editButton.id = 'edit-button';
+                    editButton.textContent = 'Edit';
+                    editButton.onclick = () => goToEditReviewPage(review.id);
+                    reviewButtons.appendChild(editButton);
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.id = 'delete-button';
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = () => deleteReview(review.id);
+                    reviewButtons.appendChild(deleteButton);
+                }
+            }
+
             // 댓글 가져오기
             getComments(review.id, 1); // 첫 페이지의 댓글을 가져옴
         })
@@ -65,6 +83,48 @@ function getReviewDetail() {
             console.error('Error fetching data:', error);
             alert('Failed to fetch review details. Please check the console for more details.');
         });
+}
+
+function goToEditReviewPage(reviewId) {
+    window.location.href = `reviews_edit.html?reviewId=${reviewId}`;
+}
+
+// 리뷰 삭제 함수
+function deleteReview(reviewId) {
+    const token = localStorage.getItem('access');
+    axios.delete(`http://127.0.0.1:8000/api/reviews/${reviewId}/destroy/`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            // 여기서 storeId를 가져오는 함수 호출 필요
+            const storeId = getStoreIdFromReviewDetail();
+            getReviews(storeId, currentPage);
+            alert('리뷰가 성공적으로 삭제되었습니다.');
+        })
+        .catch(error => {
+            console.error('Error deleting review:', error);
+            alert('리뷰 삭제에 실패했습니다. 자세한 내용은 콘솔을 확인하세요.');
+        });
+}
+
+function getReviews(storeId, page) {
+    axios.get(`http://127.0.0.1:8000/api/reviews/list/${storeId}/?page_size=${page}`)
+        .then(response => {
+            const reviewData = response.data.results;
+            updateReviewList(reviewData);
+            updateReviewPagination(response.data, storeId);
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            alert('Failed to fetch data. Please check the console for more details.');
+        });
+}
+
+// storeId를 가져오는 함수
+function getStoreIdFromReviewDetail() {
+    return getQueryParam('storeId');
 }
 
 // 댓글 가져오는 함수
@@ -94,7 +154,7 @@ function updateCommentList(commentsData) {
     commentsData.forEach(comment => {
         const listItem = document.createElement('li');
         listItem.textContent = `${comment.username}: ${comment.comment_content}`;
-        if (comment.username === loggedInUsername) { 
+        if (comment.username === loggedInUsername) {
             const editButton = document.createElement('button');
             editButton.textContent = 'Edit';
             editButton.onclick = () => goToEditCommentPage(comment.id);

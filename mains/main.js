@@ -38,6 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // adjustScrapperSectionPosition();
 });
 
+// Review Create 버튼 클릭 시 리뷰 생성 페이지로 이동하는 함수
+function createReview() {
+    window.location.href = '../reviews/reviews_create.html';
+}
+
 let currentSearchPage = 1; // 현재 검색 페이지를 저장할 변수
 let totalSearchPages = 1; // 총 검색 페이지 수
 
