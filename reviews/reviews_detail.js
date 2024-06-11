@@ -1,5 +1,35 @@
 'use strict';
 
+let loggedInUserId = null;
+let loggedInUsername = null;
+
+document.addEventListener('DOMContentLoaded', function () {
+    getLoggedInUser(); // 로그인된 유저 정보를 가져오기
+});
+
+function getLoggedInUser() {
+    const token = localStorage.getItem('access');
+    if (!token) {
+        console.error('로그인이 필요합니다.');
+        return;
+    }
+
+    axios.get('http://127.0.0.1:8000/api/accounts/me/', {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            loggedInUserId = response.data.id;
+            loggedInUsername = response.data.username; 
+            // 유저 정보를 성공적으로 가져오면 리뷰 디테일을 가져오는 함수 호출
+            getReviewDetail();
+        })
+        .catch(error => {
+            console.error('Error fetching logged-in user data:', error);
+        });
+}
+
 // URL에서 reviewId를 추출하는 함수
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -59,21 +89,22 @@ const commentPageSpan = document.getElementById('comment-current-page');
 let commentCurrentPage = 1;
 
 function updateCommentList(commentsData) {
+    commentsData.sort((a, b) => b.id - a.id);
     commentListElement.innerHTML = '';
     commentsData.forEach(comment => {
         const listItem = document.createElement('li');
         listItem.textContent = `${comment.username}: ${comment.comment_content}`;
-        // if (comment.user_id === loggedInUserId) {
+        if (comment.username === loggedInUsername) { 
             const editButton = document.createElement('button');
             editButton.textContent = 'Edit';
-            // editButton.onclick = () => editComment(comment.id);
+            editButton.onclick = () => goToEditCommentPage(comment.id);
             listItem.appendChild(editButton);
 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.onclick = () => deleteComment(comment.id);
             listItem.appendChild(deleteButton);
-        // }
+        }
         commentListElement.appendChild(listItem);
     });
 }
@@ -100,9 +131,59 @@ function updateCommentPagination(data, reviewId) {
 
 // 댓글 '수정' 버튼 클릭 시 comments_edit.html로 이동하는 함수
 function goToEditCommentPage(commentId) {
-    // comments_edit.html 페이지로 이동
     window.location.href = `comments_edit.html?commentId=${commentId}`;
 }
 
-// 페이지가 로드될 때 getReviewDetail 함수를 호출
-window.onload = getReviewDetail;
+// 댓글 삭제 함수
+function deleteComment(commentId) {
+    const token = localStorage.getItem('access');
+    axios.delete(`http://127.0.0.1:8000/api/reviews/comments/${commentId}/destroy/`, {
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            alert('댓글이 성공적으로 삭제되었습니다.');
+            // 댓글 목록을 다시 로드
+            getComments(reviewId, commentCurrentPage);
+        })
+        .catch(error => {
+            console.error('Error deleting comment:', error);
+            alert('댓글 삭제에 실패했습니다. 자세한 내용은 콘솔을 확인하세요.');
+        });
+}
+
+// 페이지가 로드될 때 getLoggedInUser 함수를 호출
+window.onload = getLoggedInUser;
+
+document.getElementById('comment-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const commentContent = document.getElementById('comment-content').value.trim();
+
+    if (commentContent === '') {
+        alert('댓글 내용을 입력하세요.');
+        return;
+    }
+
+    const token = localStorage.getItem('access');
+
+    const formData = new FormData();
+    formData.append('comment_content', commentContent);
+
+    axios.post(`http://127.0.0.1:8000/api/reviews/${reviewId}/comment/`, formData, {
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
+        }
+    })
+        .then(response => {
+            alert('댓글이 성공적으로 등록되었습니다.');
+            document.getElementById('comment-content').value = '';
+            getComments(reviewId, commentCurrentPage);
+        })
+        .catch(error => {
+            console.error('Error creating comment:', error);
+            alert('댓글 등록에 실패했습니다. 자세한 내용은 콘솔을 확인하세요.');
+        });
+});

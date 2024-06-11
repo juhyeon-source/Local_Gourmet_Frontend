@@ -35,16 +35,24 @@ function postReview(event) {
         formData.append('image', imageInput.files[0]);
     }
 
+    const token = localStorage.getItem('access');
+    if (!token) {
+        alert('로그인이 필요합니다.');
+        return;
+    }
+
     axios.post('http://127.0.0.1:8000/api/reviews/create/', formData, {
         headers: {
-            'Content-Type': 'multipart/form-data'
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`
         }
     })
         .then(response => {
-            alert('Review submitted successfully!');
+            alert('리뷰가 성공적으로 제출되었습니다!');
             const newReview = response.data;
-            addReviewToList(newReview); // 새 리뷰를 목록에 추가
-            event.target.reset(); // 폼 초기화
+            // 리뷰 작성 후 매장 상세 페이지로 리디렉션
+            const storeId = document.getElementById('store').value;
+            window.location.href = `../stores/stores_detail.html?storeId=${storeId}`;
         })
         .catch(error => {
             console.error('Error posting review:', error);
@@ -52,17 +60,4 @@ function postReview(event) {
                 console.error('Server response:', error.response.data);
             }
         });
-}
-
-// 리뷰를 목록에 추가하는 함수
-function addReviewToList(review) {
-    const listItem = document.createElement('li');
-    const reviewLink = document.createElement('a');
-    reviewLink.href = "#";
-    reviewLink.textContent = `${review.store} - ${review.username} (${review.score}/5점)`;
-    reviewLink.dataset.reviewId = review.id;
-    reviewLink.addEventListener('click', getReviewDetail);
-    const reviewList = document.getElementById('review-list'); // review-list 요소 가져오기
-    reviewList.appendChild(listItem); // 리뷰를 목록에 추가
-    listItem.appendChild(reviewLink); // 리뷰 링크를 리스트 아이템에 추가
 }

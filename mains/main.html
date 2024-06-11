@@ -13,8 +13,9 @@
 <body>
     <header>
         <div class="auth-buttons">
-            <button>Login</button>
-            <button>Sign Up</button>
+            <button id="login-button">Login</button>
+            <button id="signup-button">Sign Up</button>
+            <button id="logout-button" style="display:none;">Logout</button>
         </div>
         <div class="header-content">
             <div class="search-container">
@@ -64,5 +65,41 @@
     <footer>
         <p>&copy; 2023 Local Gourmet</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginButton = document.getElementById('login-button');
+            const signupButton = document.getElementById('signup-button');
+            const logoutButton = document.getElementById('logout-button');
+
+            // 로그인 상태 확인
+            function checkLoginStatus() {
+                const token = localStorage.getItem('access');
+                if (token) {
+                    loginButton.style.display = 'none';
+                    signupButton.style.display = 'none';
+                    logoutButton.style.display = 'block';
+                } else {
+                    loginButton.style.display = 'block';
+                    signupButton.style.display = 'block';
+                    logoutButton.style.display = 'none';
+                }
+            }
+
+            checkLoginStatus();
+
+            loginButton.addEventListener('click', function() {
+                window.location.href = 'login.html';
+            });
+
+            logoutButton.addEventListener('click', function() {
+                localStorage.removeItem('access');
+                localStorage.removeItem('refresh');
+                localStorage.removeItem('payload');
+                checkLoginStatus();
+                window.location.href = 'main.html';
+            });
+        });
+    </script>
 </body>
 </html>
