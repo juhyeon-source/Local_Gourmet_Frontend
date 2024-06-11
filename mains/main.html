@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +6,11 @@
     <title>Local Gourmet</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="chatbots.css">
+    <!-- Axios CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="main.js"></script>
     <script defer src="chatbots.js"></script>
 </head>
-
-
 <body>
     <header id="main-header">
         <div class="auth-buttons">
@@ -21,27 +18,33 @@
             <button>Sign Up</button>
         </div>
         <div class="header-content">
-            <div class="search-container">
+            <div class="search-container"> 
                 <input id="store-search" type="text" placeholder="매장명을 입력하세요.(최소 2글자)">
                 <button onclick="searchStores()">Search</button>
             </div>
         </div>
     </header>
 
-
-
-<!-- 검색 결과 섹션 -->
-<section id="search-results-slider">
-    <div class="search-results-container">
-        <button class="slider-button left" id="search-slide-left">‹</button>
-        <div class="category-slider" id="search-results-container">
-            <p class="search-placeholder">매장을 검색해주세요</p>
+    <!-- 검색 결과 섹션 -->
+    <section id="search-results-slider">
+        <div class="search-results-container">
+            <button onclick="slideSearchResults(-1)" class="slider-button left">‹</button>
+            <div class="category-slider" id="search-results-container">
+                <p class="search-placeholder">매장을 검색해주세요</p>
+            </div>
+            <button onclick="slideSearchResults(1)" class="slider-button right">›</button>
         </div>
-        <button class="slider-button right" id="search-slide-right">›</button>
-    </div>
-</section>
+    </section>
 
-    
+    <!-- 스크래퍼 섹션 -->
+    <section id="scrapper-section">
+        <h2> 오늘의 추천 레시피 </h2>
+        <div class="category-slider-container">
+            <button id="scrapper-prev" class="slider-button left" onclick="slideScrapper(-1)">‹</button>
+            <div class="category-slider" id="scrapper-slider"></div>
+            <button id="scrapper-next" class="slider-button right" onclick="slideScrapper(1)">›</button>
+        </div>
+    </section>
 
     <!-- 카테고리 섹션들을 포함하는 컨테이너 -->
     <div id="category-sections-container">
@@ -50,9 +53,6 @@
             <!-- 카테고리 슬라이드들이 여기 추가됩니다. -->
         </section>
     </div>
-
-
-
 
     <aside>
         <button id="recipe-button">👨‍🍳Recepi Bot👩‍🍳</button>
@@ -75,10 +75,3 @@
     </footer>
 </body>
 </html>
-
-
-
-
-
-
-
