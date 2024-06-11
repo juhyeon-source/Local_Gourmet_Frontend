@@ -11,17 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
         searchStores();
     });
 
-    // 새로고침 버튼 이벤트 리스너 추가
-    const reloadButton = document.getElementById('reload-button');
-    reloadButton.addEventListener('click', function() {
-        reloadStores();
-    });
+    // // 새로고침 버튼 이벤트 리스너 추가
+    // const reloadButton = document.getElementById('reload-button');
+    // reloadButton.addEventListener('click', function() {
+    //     reloadStores();
+    // });
 
-    // 헤더 이미지 클릭 이벤트 리스너 추가
-    const headerLogo = document.getElementById('header-logo');
-    headerLogo.addEventListener('click', function() {
-        window.location.href = '/'; // 메인 페이지로 이동
-    });
+    // // 헤더 이미지 클릭 이벤트 리스너 추가
+    // const headerLogo = document.getElementById('header-logo');
+    // headerLogo.addEventListener('click', function() {
+    //     window.location.href = '/'; // 메인 페이지로 이동
+    // });
 
     // 스크래퍼 데이터 가져오기
     scrapper();
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 검색 결과 아래 스크래퍼 섹션 배치
-    adjustScrapperSectionPosition();
+    // adjustScrapperSectionPosition();
 });
 
 let currentSearchPage = 1; // 현재 검색 페이지를 저장할 변수
@@ -92,6 +92,9 @@ function searchStores() {
             alert('가게 목록을 불러오는 데 실패했습니다. 자세한 내용은 콘솔을 확인하세요.');
         });
 }
+
+
+
 
 // 슬라이드 버튼을 클릭할 때 호출되는 함수 (애니메이션 및 페이지네이션 적용)
 function slideSearchResults(direction) {
@@ -171,6 +174,12 @@ function slideSearchResults(direction) {
     }
 }
 
+
+
+
+
+
+
 // 스크래퍼 데이터 가져오기
 function scrapper() {
     axios.get('http://127.0.0.1:8000/api/scrappers/?page=1')
@@ -209,6 +218,11 @@ function scrapper() {
             alert('스크래퍼 목록을 불러오는 데 실패했습니다. 자세한 내용은 콘솔을 확인하세요.');
         });
 }
+
+
+
+
+
 
 // 스크래퍼 슬라이드 기능
 function slideScrapper(direction) {
