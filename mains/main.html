@@ -6,51 +6,60 @@
     <title>Local Gourmet</title>
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="chatbots.css">
+    <!-- Axios CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="main.js"></script>
     <script defer src="chatbots.js"></script>
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <div class="auth-buttons">
             <button id="login-button">Login</button>
             <button id="signup-button">Sign Up</button>
             <button id="logout-button" style="display:none;">Logout</button>
         </div>
         <div class="header-content">
-            <div class="search-container">
-                <input type="text" placeholder="Search...">
-                <button>Search</button>
+            <div class="search-container"> 
+                <input id="store-search" type="text" placeholder="매장명을 입력하세요.(최소 2글자)">
+                <button onclick="searchStores()">Search</button>
             </div>
         </div>
     </header>
-    <nav>
-        <button>매장 카테고리</button>
-        <button>지역 선택</button>
-        <button id="write-review-button">리뷰 작성하기</button>
-    </nav>
 
-    
-    <section id="store-categories">
-        <h2>한식</h2>
-        <div class="category" id="Korean">
-
-        <div class="category-slider-container">
-            <button id="prev" class="slider-button">‹</button>
-            <div class="category-slider" id="category-slider"></div>
-            <button id="next" class="slider-button">›</button>
+    <!-- 검색 결과 섹션 -->
+    <section id="search-results-slider">
+        <div class="search-results-container">
+            <button onclick="slideSearchResults(-1)" class="slider-button left">‹</button>
+            <div class="category-slider" id="search-results-container">
+                <p class="search-placeholder">매장을 검색해주세요</p>
+            </div>
+            <button onclick="slideSearchResults(1)" class="slider-button right">›</button>
         </div>
     </section>
 
+    <!-- 스크래퍼 섹션 -->
+    <section id="scrapper-section">
+        <h2> 오늘의 추천 레시피 </h2>
+        <div class="category-slider-container">
+            <button id="scrapper-prev" class="slider-button left" onclick="slideScrapper(-1)">‹</button>
+            <div class="category-slider" id="scrapper-slider"></div>
+            <button id="scrapper-next" class="slider-button right" onclick="slideScrapper(1)">›</button>
+        </div>
+    </section>
 
-
-
+    <!-- 카테고리 섹션들을 포함하는 컨테이너 -->
+    <div id="category-sections-container">
+        <section id="store-categories">
+            <h2 class="category-header">음식 카테고리별 매장</h2>
+            <!-- 카테고리 슬라이드들이 여기 추가됩니다. -->
+        </section>
+    </div>
 
     <aside>
-        <button id="recipe-button">레시피 만들기</button>
+        <button id="recipe-button">👨‍🍳Recepi Bot👩‍🍳</button>
         <div class="chat-container" id="chat-container">
             <div class="chat-header">
-                <h1>👨‍🍳Local Gourmet👩‍🍳Recepi Bot</h1>
+                <h1>👨‍🍳Recepi Bot👩‍🍳</h1>
             </div>
             <div class="chat-messages" id="chatMessages"></div>
             <div id="loading" class="loading">
