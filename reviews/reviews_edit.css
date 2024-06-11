@@ -38,6 +38,16 @@ textarea {
     box-sizing: border-box;
 }
 
+input[type="file"] {
+    display: block;
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
 input[type="submit"] {
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -45,4 +55,24 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* 추가 스타일 */
+input[type="file"]::file-selector-button {
+    padding: 5px 10px;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #45a049;
 }
