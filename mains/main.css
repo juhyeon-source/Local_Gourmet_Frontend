@@ -84,6 +84,12 @@ header {
     cursor: pointer;
 }
 
+h2 {
+    color: #C62C2E;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* 검색 컨테이너 스타일 */
 .search-container {
     position: absolute; /* 검색 컨테이너를 절대 위치로 설정 */
