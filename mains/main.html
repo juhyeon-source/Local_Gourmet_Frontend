@@ -16,6 +16,7 @@
         <div class="auth-buttons">
             <button id="login-button">Login</button>
             <button id="signup-button">Sign Up</button>
+            <button id="profile-button" style="display:none;">Profile</button>
             <button id="logout-button" style="display:none;">Logout</button>
         </div>
         <div class="header-content">
@@ -81,6 +82,7 @@
             const loginButton = document.getElementById('login-button');
             const signupButton = document.getElementById('signup-button');
             const logoutButton = document.getElementById('logout-button');
+            const profileButton = document.getElementById('profile-button');
 
             // 로그인 상태 확인
             function checkLoginStatus() {
@@ -89,10 +91,12 @@
                     loginButton.style.display = 'none';
                     signupButton.style.display = 'none';
                     logoutButton.style.display = 'block';
+                    profileButton.style.display = 'block';
                 } else {
                     loginButton.style.display = 'block';
                     signupButton.style.display = 'block';
                     logoutButton.style.display = 'none';
+                    profileButton.style.display = 'none';
                 }
             }
 
@@ -113,6 +117,10 @@
                 checkLoginStatus();
                 window.location.href = 'main.html';
             });
+
+            profileButton.addEventListener('click', function() {
+                window.location.href = '../user/mypage.html';
+            })
         });
     </script>
 </body>

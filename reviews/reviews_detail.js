@@ -49,8 +49,6 @@ function getReviewDetail() {
     axios.get(`http://127.0.0.1:8000/api/reviews/${reviewId}/`)
         .then(response => {
             const review = response.data;
-            document.getElementById('review-id').textContent = review.id;
-            document.getElementById('store-id').textContent = review.store_id;
             document.getElementById('store-name').textContent = review.store;
             document.getElementById('username').textContent = review.username;
             document.getElementById('score').textContent = review.score;
