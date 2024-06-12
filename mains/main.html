@@ -14,13 +14,16 @@
 <body>
     <header id="main-header">
         <div class="auth-buttons">
-            <button>Login</button>
-            <button>Sign Up</button>
+            <button id="login-button">Login</button>
+            <button id="signup-button">Sign Up</button>
+            <button id="profile-button" style="display:none;">Profile</button>
+            <button id="logout-button" style="display:none;">Logout</button>
         </div>
         <div class="header-content">
             <div class="search-container"> 
                 <input id="store-search" type="text" placeholder="매장명을 입력하세요.(최소 2글자)">
-                <button onclick="searchStores()">검색</button>
+                <button onclick="searchStores()">Search</button>
+                <button id="review-create" onclick="createReview()">Review Create</button>
             </div>
         </div>
         <a href="http://127.0.0.1:5500/mains/main.html" class="header-link">Local Gourmet</a>
@@ -70,5 +73,52 @@
     <footer>
         <p>&copy; 2024 Local Gourmet</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginButton = document.getElementById('login-button');
+            const signupButton = document.getElementById('signup-button');
+            const logoutButton = document.getElementById('logout-button');
+            const profileButton = document.getElementById('profile-button');
+
+            // 로그인 상태 확인
+            function checkLoginStatus() {
+                const token = localStorage.getItem('access');
+                if (token) {
+                    loginButton.style.display = 'none';
+                    signupButton.style.display = 'none';
+                    logoutButton.style.display = 'block';
+                    profileButton.style.display = 'block';
+                } else {
+                    loginButton.style.display = 'block';
+                    signupButton.style.display = 'block';
+                    logoutButton.style.display = 'none';
+                    profileButton.style.display = 'none';
+                }
+            }
+
+            checkLoginStatus();
+
+            loginButton.addEventListener('click', function() {
+                window.location.href = '../user/login.html';
+            });
+
+            signupButton.addEventListener('click', function() {
+                window.location.href = '../user/register.html';
+            });
+
+            logoutButton.addEventListener('click', function() {
+                localStorage.removeItem('access');
+                localStorage.removeItem('refresh');
+                localStorage.removeItem('payload');
+                checkLoginStatus();
+                window.location.href = 'main.html';
+            });
+
+            profileButton.addEventListener('click', function() {
+                window.location.href = '../user/mypage.html';
+            })
+        });
+    </script>
 </body>
 </html>

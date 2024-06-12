@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 레시피챗봇 토글버튼 추가
     document.getElementById('recipe-button').addEventListener('click', () => {
-        document.getElementById('chat-container').classList.toggle('active');
+    document.getElementById('chat-container').classList.toggle('active');
     });
 });
 
