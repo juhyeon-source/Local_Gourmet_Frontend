@@ -13,14 +13,14 @@
         <label>유저명:</label>
         <span id="username"></span>
       </div>
-      <div>
+      <!-- <div>
         <label>이름:</label>
         <span id="first_name"></span>
       </div>
       <div>
         <label>성:</label>
         <span id="last_name"></span>
-      </div>
+      </div> -->
       <div>
         <label>성별:</label>
         <span id="gender"></span>
@@ -82,8 +82,6 @@
           if (response.ok) {
             const data = await response.json();
             document.getElementById("username").textContent = data.username;
-            document.getElementById("first_name").textContent = data.first_name;
-            document.getElementById("last_name").textContent = data.last_name;
             document.getElementById("gender").textContent =
               data.gender === "M"
                 ? "남성"

@@ -16,7 +16,7 @@ function getCommentDetails() {
     }
     
 
-    axios.get(`http://127.0.0.1:8000/api/reviews/comments/${commentId}/`, {
+    axios.get(`https://www.sparta-local-gourmet.store/api/reviews/comments/${commentId}/`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -55,7 +55,7 @@ document.getElementById('comment-edit').addEventListener('submit', function(even
     const formData = new FormData();
     formData.append('comment_content', editedContent);
 
-    axios.put(`http://127.0.0.1:8000/api/reviews/comments/${commentId}/update/`, formData, {
+    axios.put(`https://www.sparta-local-gourmet.store/api/reviews/comments/${commentId}/update/`, formData, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
