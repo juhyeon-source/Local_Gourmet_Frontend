@@ -219,36 +219,6 @@ h3 {
     border-radius: 5px;
 }
 
-@media (max-width: 1200px) {
-    .slider-container {
-        width: calc(100% - 300px); /* 좌우 150px 여백 */
-    }
-}
-
-@media (max-width: 800px) {
-    .slider-container {
-        width: calc(100% - 100px); /* 좌우 50px 여백 */
-    }
-}
-
-@media (max-width: 500px) {
-    .slider-container {
-        width: 100%;
-        padding: 10px;
-    }
-
-    /* 기타 요소의 스타일 조정 */
-    .header-content, .search-container, .chat-input {
-        padding: 5px;
-    }
-
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* 푸터 스타일 */
 footer {
     background: #c62c2e;
