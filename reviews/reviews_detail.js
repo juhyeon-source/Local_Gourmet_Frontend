@@ -139,7 +139,7 @@ function getComments(reviewId, page) {
         });
 }
 
-const commentListElement = document.getElementById('comment-list');
+const commentListElement = document.getElementById('comment-contents');
 const commentPrevButton = document.getElementById('comment-prev-page');
 const commentNextButton = document.getElementById('comment-next-page');
 const commentPageSpan = document.getElementById('comment-current-page');
@@ -150,7 +150,7 @@ function updateCommentList(commentsData) {
     commentsData.sort((a, b) => b.id - a.id);
     commentListElement.innerHTML = '';
     commentsData.forEach(comment => {
-        const listItem = document.createElement('li');
+        const listItem = document.createElement('p');
         listItem.textContent = `${comment.username}: ${comment.comment_content}`;
         if (comment.username === loggedInUsername) {
             const editButton = document.createElement('button');

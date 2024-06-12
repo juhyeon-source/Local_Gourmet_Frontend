@@ -16,6 +16,7 @@
         <div class="auth-buttons">
             <button id="login-button">Login</button>
             <button id="signup-button">Sign Up</button>
+            <button id="profile-button" style="display:none;">Profile</button>
             <button id="logout-button" style="display:none;">Logout</button>
         </div>
         <div class="header-content">
@@ -25,27 +26,24 @@
                 <button id="review-create" onclick="createReview()">Review Create</button>
             </div>
         </div>
+        <a href="http://127.0.0.1:5500/mains/main.html" class="header-link">Local Gourmet</a>
     </header>
 
     <!-- 검색 결과 섹션 -->
-    <section id="search-results-slider">
-        <div class="search-results-container">
-            <button onclick="slideSearchResults(-1)" class="slider-button left">‹</button>
-            <div class="category-slider" id="search-results-container">
-                <p class="search-placeholder">매장을 검색해주세요</p>
-            </div>
-            <button onclick="slideSearchResults(1)" class="slider-button right">›</button>
+    <section id="search-results-slider" class="slider-container">
+        <button onclick="slide('search-results-container', -1)" class="slider-button left">‹</button>
+        <div class="slider" id="search-results-container">
+            <p class="search-placeholder"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;매장을 검색해주세요</p>
         </div>
+        <button onclick="slide('search-results-container', 1)" class="slider-button right">›</button>
     </section>
 
     <!-- 스크래퍼 섹션 -->
-    <section id="scrapper-section">
+    <section id="scrapper-section" class="slider-container">
         <h2> 오늘의 추천 레시피 </h2>
-        <div class="category-slider-container">
-            <button id="scrapper-prev" class="slider-button left" onclick="slideScrapper(-1)">‹</button>
-            <div class="category-slider" id="scrapper-slider"></div>
-            <button id="scrapper-next" class="slider-button right" onclick="slideScrapper(1)">›</button>
-        </div>
+        <button id="scrapper-prev" class="slider-button left" onclick="slide('scrapper-slider', -1)">‹</button>
+        <div class="slider" id="scrapper-slider"></div>
+        <button id="scrapper-next" class="slider-button right" onclick="slide('scrapper-slider', 1)">›</button>
     </section>
 
     <!-- 카테고리 섹션들을 포함하는 컨테이너 -->
@@ -57,10 +55,10 @@
     </div>
 
     <aside>
-        <button id="recipe-button">👨‍🍳Recepi Bot👩‍🍳</button>
+        <button id="recipe-button">👨‍🍳구르메 봇👩‍🍳</button>
         <div class="chat-container" id="chat-container">
             <div class="chat-header">
-                <h1>👨‍🍳Recepi Bot👩‍🍳</h1>
+                <h1>👨‍🍳구르메 봇👩‍🍳</h1>
             </div>
             <div class="chat-messages" id="chatMessages"></div>
             <div id="loading" class="loading">
@@ -73,7 +71,7 @@
         </div>
     </aside>
     <footer>
-        <p>&copy; 2023 Local Gourmet</p>
+        <p>&copy; 2024 Local Gourmet</p>
     </footer>
 
     <script>
@@ -81,6 +79,7 @@
             const loginButton = document.getElementById('login-button');
             const signupButton = document.getElementById('signup-button');
             const logoutButton = document.getElementById('logout-button');
+            const profileButton = document.getElementById('profile-button');
 
             // 로그인 상태 확인
             function checkLoginStatus() {
@@ -89,10 +88,12 @@
                     loginButton.style.display = 'none';
                     signupButton.style.display = 'none';
                     logoutButton.style.display = 'block';
+                    profileButton.style.display = 'block';
                 } else {
                     loginButton.style.display = 'block';
                     signupButton.style.display = 'block';
                     logoutButton.style.display = 'none';
+                    profileButton.style.display = 'none';
                 }
             }
 
@@ -113,6 +114,10 @@
                 checkLoginStatus();
                 window.location.href = 'main.html';
             });
+
+            profileButton.addEventListener('click', function() {
+                window.location.href = '../user/mypage.html';
+            })
         });
     </script>
 </body>
