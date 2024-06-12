@@ -24,18 +24,48 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
 h4 {
   color: #495057;
   margin-bottom: 20px;
-}
-
-.text-center {
-  text-align: center;
+  text-align: center; /* 헤딩 중앙 정렬 */
 }
 
 .form-label {
   font-weight: bold;
   color: #495057;
+  display: block;
+  margin-bottom: 10px; /* 레이블과 입력 필드 사이 간격 */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select {
+  width: 100%;
+  padding: 20px; /* 입력 필드 내부 여백 확대 */
+  margin-bottom: 25px; /* 입력 필드 간 간격 확대 */
+  border: 1px solid #ced4da;
+  border-radius: 10px; /* 둥근 모서리 */
+  font-size: 1.8rem; /* 입력 필드 글꼴 크기 확대 */
+  color: #495057;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+select:focus {
+  border-color: #C62C2E;
+  outline: none;
+  box-shadow: 0 0 5px rgba(198, 44, 46, 0.3);
 }
 
 .round-image {
@@ -69,7 +99,7 @@ h4 {
 
 .password-update-div,
 .mb-3 {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .button-container {
@@ -85,10 +115,10 @@ button.btn.btn-secondary {
   background-color: #C62C2E;
   border: none;
   color: #fff;
-  padding: 10px 20px;
-  font-size: 1.6rem;
+  padding: 15px 30px; /* 버튼 크기 확대 */
+  font-size: 1.8rem; /* 버튼 글꼴 크기 확대 */
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 10px; /* 둥근 모서리 */
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -106,12 +136,12 @@ button.btn.btn-secondary:hover {
 #new-password-error,
 #new-password-check-error {
   color: red;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 #new-password-error {
   color: gray;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 @media (min-width: 768px) {

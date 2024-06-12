@@ -84,6 +84,12 @@ header {
     cursor: pointer;
 }
 
+h2 {
+    color: #C62C2E;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* 검색 컨테이너 스타일 */
 .search-container {
     position: absolute; /* 검색 컨테이너를 절대 위치로 설정 */
@@ -96,7 +102,6 @@ header {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 0 20px; /* 좌우 여백 */
     background-color: rgba(255, 255, 255); /* 배경색 */
     border: 1px solid #ccc; /* 얇은 테두리 추가 */
     border-radius: 5px; /* 둥근 모서리 */
@@ -108,7 +113,7 @@ header {
     flex-grow: 1;
     padding: 10px;
     height: 100%; /* 높이 사이즈 */
-    padding: 0 100px; /* 좌우 여백 */
+    /* padding: 0 100px;  */
     border-radius: 5px 0 0 5px;
     border: none;
     box-sizing: border-box;
@@ -128,6 +133,18 @@ header {
     border-left: 1px solid #ccc; /* 버튼 왼쪽에 테두리 추가 */
 }
 
+/* 리뷰 작성 버튼 스타일 */
+.review-create-container button {
+    padding: 10px 20px;
+    height: 100%; /* 높이 사이즈 */
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background-color: #ffffff;
+    color: #f47827;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* 버튼 왼쪽에 테두리 추가 */
+}
 
 /* 슬라이더 컨테이너 내의 제목 스타일 */
 .slider-container h2 {

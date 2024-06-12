@@ -35,13 +35,38 @@ header {
     text-align: center;
     box-sizing: border-box;
     z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
-    min-height: 500px; /* 최소 높이 설정 */
-    max-height: 500px; /* 최대 높이 설정 */
+    min-height: 200px; /* 최소 높이 설정 */
+    max-height: 200px; /* 최대 높이 설정 */
+}
+
+/* 헤더 콘텐츠 스타일 */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-link {
+    display: block; /* 블록 레벨 요소로 만들어 너비를 조절할 수 있게 함 */
+    position: absolute; /* 헤더 내에서 절대 위치 지정 */
+    top: 50%; /* 상단에서 50% 위치 */
+    left: 50%; /* 왼쪽에서 50% 위치 */
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 위치 조정 */
+    height: 100px; /* 링크의 높이를 100px로 설정 */
+    width: 100%; /* 전체 너비 사용 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    line-height: 100px; /* 높이에 맞춰 라인 높이 설정 */
+    color: transparent; /* 폰트 색상을 투명하게 설정 */
+    font-size: 24px; /* 폰트 크기 */
+    text-decoration: none; /* 언더라인 제거 */
+    background-color: transparent; /* 폰트 색상을 투명하게 설정 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
 }
 
 /* 메인 컨텐츠 스타일 */
 section {
-    padding-top: 500px; /* 헤더 높이와 일치 */
+    min-width: 400px;
+    padding-top: 210px; /* 헤더 높이와 일치 */
     padding-left: 450px; /* 좌우 여백 */
     padding-right: 450px; /* 좌우 여백 */
     margin-bottom: 30px; /* 각 섹션 사이에 여백 추가 */
@@ -50,6 +75,7 @@ section {
 
 /* 섹션 제목 스타일 */
 h1 {
+    min-width: 700px;
     color: #C62C2E;
     margin-top: 20px;
     font-size: 2em;
@@ -57,7 +83,7 @@ h1 {
 
 /* 리뷰 생성 폼 스타일 */
 #review-create {
-    max-width: 800px;
+    width: 700px;
     margin: 20px auto;
     padding: 20px;
     background: #ffffff;
