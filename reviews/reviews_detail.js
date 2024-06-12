@@ -14,7 +14,7 @@ function getLoggedInUser() {
         return;
     }
 
-    axios.get('http://3.38.191.229/api/accounts/me/', {
+    axios.get('https://www.sparta-local-gourmet.store/api/accounts/me/', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -46,7 +46,7 @@ function getReviewDetail() {
         return;
     }
 
-    axios.get(`http://3.38.191.229/api/reviews/${reviewId}/`)
+    axios.get(`https://www.sparta-local-gourmet.store/api/reviews/${reviewId}/`)
         .then(response => {
             const review = response.data;
             document.getElementById('store-name').textContent = review.store;
@@ -90,7 +90,7 @@ function goToEditReviewPage(reviewId) {
 // 리뷰 삭제 함수
 function deleteReview(reviewId) {
     const token = localStorage.getItem('access');
-    axios.delete(`http://3.38.191.229/api/reviews/${reviewId}/destroy/`, {
+    axios.delete(`https://www.sparta-local-gourmet.store/api/reviews/${reviewId}/destroy/`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -108,7 +108,7 @@ function deleteReview(reviewId) {
 }
 
 function getReviews(storeId, page) {
-    axios.get(`http://3.38.191.229/api/reviews/list/${storeId}/?page_size=${page}`)
+    axios.get(`https://www.sparta-local-gourmet.store/api/reviews/list/${storeId}/?page_size=${page}`)
         .then(response => {
             const reviewData = response.data.results;
             updateReviewList(reviewData);
@@ -127,7 +127,7 @@ function getStoreIdFromReviewDetail() {
 
 // 댓글 가져오는 함수
 function getComments(reviewId, page) {
-    axios.get(`http://3.38.191.229/api/reviews/${reviewId}/comments/?page_size=${page}`)
+    axios.get(`https://www.sparta-local-gourmet.store/api/reviews/${reviewId}/comments/?page_size=${page}`)
         .then(response => {
             const commentsData = response.data.results;
             updateCommentList(commentsData);
@@ -195,7 +195,7 @@ function goToEditCommentPage(commentId) {
 // 댓글 삭제 함수
 function deleteComment(commentId) {
     const token = localStorage.getItem('access');
-    axios.delete(`http://3.38.191.229/api/reviews/comments/${commentId}/destroy/`, {
+    axios.delete(`https://www.sparta-local-gourmet.store/api/reviews/comments/${commentId}/destroy/`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -229,7 +229,7 @@ document.getElementById('comment-form').addEventListener('submit', function (eve
     const formData = new FormData();
     formData.append('comment_content', commentContent);
 
-    axios.post(`http://3.38.191.229/api/reviews/${reviewId}/comment/`, formData, {
+    axios.post(`https://www.sparta-local-gourmet.store/api/reviews/${reviewId}/comment/`, formData, {
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
