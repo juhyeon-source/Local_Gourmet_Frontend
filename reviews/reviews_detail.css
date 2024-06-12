@@ -1,10 +1,66 @@
-/* 공통 스타일 */
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 본문 스타일 */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
+    padding-bottom: 110px; /* 푸터와의 여백을 위해 아래쪽 패딩 추가 */
+    width: 100%;
+    height: 100%;
     background-color: #f9f9f9;
     color: #333;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+/* 헤더 스타일 */
+header {
+    position: fixed; /* 헤더를 고정하여 스크롤 시에도 항상 상단에 위치 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    background-image: url('../mains/images/header-bg.png'); /* 실제 이미지 경로 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    padding: 20px; /* 패딩을 줄여서 전체 높이를 줄임 */
+    height: 20vh; /* 화면 높이의 20%로 설정 */
+    text-align: center;
+    box-sizing: border-box;
+    z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
+    min-height: 200px; /* 최소 높이 설정 */
+    max-height: 200px; /* 최대 높이 설정 */
+}
+
+/* 헤더 콘텐츠 스타일 */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-link {
+    display: block; /* 블록 레벨 요소로 만들어 너비를 조절할 수 있게 함 */
+    position: absolute; /* 헤더 내에서 절대 위치 지정 */
+    top: 50%; /* 상단에서 50% 위치 */
+    left: 50%; /* 왼쪽에서 50% 위치 */
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 위치 조정 */
+    height: 100px; /* 링크의 높이를 100px로 설정 */
+    width: 100%; /* 전체 너비 사용 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    line-height: 100px; /* 높이에 맞춰 라인 높이 설정 */
+    color: transparent; /* 폰트 색상을 투명하게 설정 */
+    font-size: 24px; /* 폰트 크기 */
+    text-decoration: none; /* 언더라인 제거 */
+    background-color: transparent; /* 폰트 색상을 투명하게 설정 */
+    z-index: 1000; /* 다른 요소 위에 표시 */
 }
 
 h1 {
@@ -14,7 +70,7 @@ h1 {
 }
 
 #review-detail {
-    max-width: 800px;
+    width: 700px;
     margin: 30px auto;
     padding: 20px;
     background: #ffffff;
@@ -24,7 +80,7 @@ h1 {
 }
 
 #comment-list {
-    max-width: 800px;
+    width: 700px;
     margin: 30px auto;
     padding: 20px;
     background: #ffffff;
@@ -34,7 +90,7 @@ h1 {
 }
 
 #comment-create {
-    max-width: 800px;
+    width: 700px;
     margin: 30px auto;
     padding: 20px;
     background: #ffffff;
@@ -77,42 +133,18 @@ input[type="submit"] {
     cursor: pointer;
 }
 
+#comment-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
 #comment-pagination button:disabled {
     background-color: #ccc;
     color: #999;
     cursor: not-allowed;
-}
-
-/* 헤더 스타일 */
-header {
-    position: fixed; /* 헤더를 고정하여 스크롤 시에도 항상 상단에 위치 */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #ffffff;
-    background-image: url('../mains/images/header-bg.png'); /* 실제 이미지 경로 */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #ffffff;
-    padding: 20px; /* 패딩을 줄여서 전체 높이를 줄임 */
-    height: 20vh; /* 화면 높이의 20%로 설정 */
-    text-align: center;
-    box-sizing: border-box;
-    z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
-    min-height: 500px; /* 최소 높이 설정 */
-    max-height: 500px; /* 최대 높이 설정 */
-}
-
-/* 푸터 스타일 */
-footer {
-    background: #c62c2e;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
 }
 
 /* 추가 스타일 */
@@ -153,7 +185,7 @@ footer {
 
 /* 메인 컨텐츠 스타일 */
 section {
-    padding-top: 500px; /* 헤더 높이와 일치 */
+    padding-top: 200px; /* 헤더 높이와 일치 */
     padding-left: 450px; /* 좌우 여백 */
     padding-right: 450px; /* 좌우 여백 */
     margin-bottom: 30px; /* 각 섹션 사이에 여백 추가 */
@@ -185,4 +217,15 @@ h3 {
     padding: 10px;
     margin: 5px 0;
     border-radius: 5px;
+}
+
+/* 푸터 스타일 */
+footer {
+    background: #c62c2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
 }
