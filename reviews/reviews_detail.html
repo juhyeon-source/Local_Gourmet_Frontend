@@ -13,22 +13,21 @@
     </header>
 
     <section>
-        <h1>Review Detail</h1>
         <div id="review-detail">
-            <p>ID: <span id="review-id"></span></p>
-            <p>Store ID: <span id="store-id"></span></p>
-            <p>Store Name: <span id="store-name"></span></p>
-            <p>Username: <span id="username"></span></p>
-            <p>Score: <span id="score"></span></p>
-            <p>Review Content: <span id="review-content"></span></p>
-            <p>Image: <span id="image"></span></p>
-            <p>Created Date: <span id="created-at"></span></p>
-            <p>Updated Date: <span id="updated-at"></span></p>
+            <h1>리뷰 상세보기</h1>
+            <p class="store-name">매장명: <span id="store-name"></span></p>
+            <p class="username">사용자 이름: <span id="username"></span></p>
+            <p class="score">점수: <span id="score"></span></p>
+            <p class="review-content">리뷰 내용: <span id="review-content"></span></p>
+            <p class="image"><span id="image"></span></p>
+            <p class="created-at">생성 날짜: <span id="created-at"></span></p>
+            <p class="updated-at">갱신 날짜: <span id="updated-at"></span></p>
             <div id="review-buttons" class="button-group"></div>
+        </div>
 
-        <h3>Comment List</h3>
         <div id="comment-list">
-            <ul id="comment-list"></ul>
+            <h3 class="comment-title">Comment List</h3>
+            <div id="comment-contents"></div>
             <div id="comment-pagination">
                 <button id="comment-prev-page" disabled>Previous</button>
                 <span id="comment-current-page">Page 1</span>
@@ -43,8 +42,6 @@
                 <textarea name="comment-content" id="comment-content" placeholder="내용을 입력하시오." required></textarea><br>
                 <input type="submit" value="저장">
             </form>
-        </div>
-        
         </div>
     </section>
 

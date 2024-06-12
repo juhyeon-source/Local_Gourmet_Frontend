@@ -50,7 +50,7 @@ section {
 
 /* 섹션 제목 스타일 */
 h1 {
-    color: #ff6b6b;
+    color: #C62C2E;
     margin-top: 20px;
     font-size: 2em;
 }
@@ -87,7 +87,7 @@ textarea {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #ff6b6b;
+    background-color: #C62C2E;
     color: white;
     border: none;
     border-radius: 5px;

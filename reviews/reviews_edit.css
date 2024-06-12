@@ -8,7 +8,7 @@ body {
 }
 
 h2 {
-    color: #ff6b6b;
+    color: #C62C2E;
     text-align: center;
     margin-top: 20px;
 }
@@ -50,7 +50,7 @@ input[type="file"] {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #ff6b6b;
+    background-color: #C62C2E;
     color: white;
     border: none;
     border-radius: 5px;
@@ -59,22 +59,22 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #ff6b6b;
+    background-color: #C62C2E;
 }
 
 /* 추가 스타일 */
 input[type="file"]::file-selector-button {
     padding: 5px 10px;
-    border: 1px solid #ff6b6b;
+    border: 1px solid #C62C2E;
     border-radius: 5px;
-    background-color: #ff6b6b;
+    background-color: #C62C2E;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 input[type="file"]::file-selector-button:hover {
-    background-color: #ff6b6b;
+    background-color: #C62C2E;
 }
 
 /* 헤더 스타일 */
