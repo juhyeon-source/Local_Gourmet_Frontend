@@ -17,8 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Review Create 버튼 클릭 시 리뷰 생성 페이지로 이동하는 함수
+function createReview() {
+    window.location.href = '../reviews/reviews_create.html';
+}
+
 let currentSearchPage = 1;
 let totalSearchPages = 1;
+
 
 function searchStores() {
     const searchQuery = document.getElementById('store-search').value;
