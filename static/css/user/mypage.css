@@ -9,10 +9,80 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'Source Sans Pro', sans-serif;
+  font-family: "Inter", "Source Sans Pro", sans-serif;
   background-color: #fff7f7;
   margin: 0;
   padding: 0;
+}
+
+/* 헤더 스타일 */
+header {
+  position: fixed; /* 헤더를 고정하여 스크롤 시에도 항상 상단에 위치 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  background-image: url("/static/img/header-bg.png"); /* 실제 이미지 경로 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  padding: 20px; /* 패딩을 줄여서 전체 높이를 줄임 */
+  height: 20vh; /* 화면 높이의 20%로 설정 */
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 2147483647; /* 다른 요소보다 최상위로 나타나도록 설정 */
+  min-height: 200px; /* 최소 높이 설정 */
+  max-height: 200px; /* 최대 높이 설정 */
+}
+
+/* 헤더 콘텐츠 스타일 */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-link {
+  display: block; /* 블록 레벨 요소로 만들어 너비를 조절할 수 있게 함 */
+  position: absolute; /* 헤더 내에서 절대 위치 지정 */
+  top: 50%; /* 상단에서 50% 위치 */
+  left: 50%; /* 왼쪽에서 50% 위치 */
+  transform: translate(-50%, -50%); /* 정확히 중앙으로 위치 조정 */
+  height: 100px; /* 링크의 높이를 100px로 설정 */
+  width: 100%; /* 전체 너비 사용 */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  line-height: 100px; /* 높이에 맞춰 라인 높이 설정 */
+  color: transparent; /* 폰트 색상을 투명하게 설정 */
+  font-size: 24px; /* 폰트 크기 */
+  text-decoration: none; /* 언더라인 제거 */
+  background-color: transparent; /* 폰트 색상을 투명하게 설정 */
+  z-index: 1000; /* 다른 요소 위에 표시 */
+}
+
+/* 인증 버튼 스타일 */
+.auth-buttons {
+  position: absolute;
+  top: 10px; /* 헤더의 상단에서 10px 아래 */
+  right: 20px; /* 헤더의 오른쪽 끝에서 20px 떨어진 위치 */
+  display: flex;
+  gap: 20px; /* 버튼 사이 간격 20px */
+  z-index: 900; /* 다른 요소보다 최상위로 나타나도록 설정 */
+}
+
+.auth-buttons button {
+  padding: 10px 15px;
+  background-color: #ffffff;
+  color: #f47827;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+h2 {
+  color: #c62c2e;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .profile-container {
@@ -26,7 +96,7 @@ body {
 
 .profile-container h1,
 .profile-container h2 {
-  color: #C62C2E;
+  color: #c62c2e;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -56,7 +126,7 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
-  background-color: #C62C2E;
+  background-color: #c62c2e;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -124,14 +194,14 @@ body {
 
 [type="button"] {
   background-color: white;
-  color: #C62C2E;
+  color: #c62c2e;
   border: none;
   border-radius: 10px;
   cursor: pointer;
 }
 
 [type="button"]:hover {
-  background-color: #C62C2E;
+  background-color: #c62c2e;
   color: white;
 }
 
@@ -192,22 +262,13 @@ body {
   }
 }
 
-@media (max-width: 767px) {
-  .bookmark-card,
-  .my-story-card,
-  .recently-card {
-    width: calc(50% - 14px);
-  }
-
-  .profile-container img {
-    max-width: 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .bookmark-card,
-  .my-story-card,
-  .recently-card {
-    width: 100%;
-  }
+/* 푸터 스타일 */
+footer {
+  background: #c62c2e;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
 }
