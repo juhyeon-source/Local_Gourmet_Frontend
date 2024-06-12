@@ -51,7 +51,7 @@ p {
 button {
     padding: 5px 10px;
     margin-left: 10px;
-    background-color: #ff6b6b;
+    background-color: #C62C2E;
     color: white;
     border: none;
     border-radius: 5px;
@@ -70,7 +70,7 @@ textarea {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #ff6b6b;
+    background-color: #C62C2E;
     color: white;
     border: none;
     border-radius: 5px;
@@ -162,14 +162,14 @@ section {
 }
 
 h1 {
-    color: #ff6b6b;
+    color: #C62C2E;
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 2em;
 }
 
 h3 {
-    color: #ff6b6b;
+    color: #C62C2E;
     margin-top: 5px;
     margin-bottom: 10px;
     font-size: 2em;
