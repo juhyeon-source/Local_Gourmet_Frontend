@@ -60,7 +60,7 @@ window.onload = () => {
   getReviews(storeId, currentPage);
 };
 
-const reviewListElement = document.getElementById('review-list');
+const reviewListElement = document.getElementById('review-items');
 const reviewPrevButton = document.getElementById('review-prev-page');
 const reviewNextButton = document.getElementById('review-next-page');
 const reviewCurrentPageSpan = document.getElementById('review-current-page');

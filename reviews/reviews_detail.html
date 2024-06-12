@@ -13,8 +13,8 @@
     </header>
 
     <section>
-        <h1>Review Detail</h1>
         <div id="review-detail">
+            <h1>Review Detail</h1>
             <p>ID: <span id="review-id"></span></p>
             <p>Store ID: <span id="store-id"></span></p>
             <p>Store Name: <span id="store-name"></span></p>
@@ -25,10 +25,11 @@
             <p>Created Date: <span id="created-at"></span></p>
             <p>Updated Date: <span id="updated-at"></span></p>
             <div id="review-buttons" class="button-group"></div>
+        </div>
 
-        <h3>Comment List</h3>
         <div id="comment-list">
-            <ul id="comment-list"></ul>
+            <h3>Comment List</h3>
+            <div id="comment-contents"></div>
             <div id="comment-pagination">
                 <button id="comment-prev-page" disabled>Previous</button>
                 <span id="comment-current-page">Page 1</span>
@@ -43,8 +44,6 @@
                 <textarea name="comment-content" id="comment-content" placeholder="내용을 입력하시오." required></textarea><br>
                 <input type="submit" value="저장">
             </form>
-        </div>
-        
         </div>
     </section>
 
