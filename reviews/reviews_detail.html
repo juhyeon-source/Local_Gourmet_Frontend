@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Detail</title>
+    <link rel="stylesheet" href="reviews_detail.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="reviews_detail.js"></script>
+</head>
+<body>
+    <header id="main-header">
+    </header>
+
+    <section>
+        <div id="review-detail">
+            <h1>리뷰 상세보기</h1>
+            <p class="store-name">매장명: <span id="store-name"></span></p>
+            <p class="username">사용자 이름: <span id="username"></span></p>
+            <p class="score">점수: <span id="score"></span></p>
+            <p class="review-content">리뷰 내용: <span id="review-content"></span></p>
+            <p class="image"><span id="image"></span></p>
+            <p class="created-at">생성 날짜: <span id="created-at"></span></p>
+            <p class="updated-at">갱신 날짜: <span id="updated-at"></span></p>
+            <div id="review-buttons" class="button-group"></div>
+        </div>
+
+        <div id="comment-list">
+            <h3 class="comment-title">Comment List</h3>
+            <div id="comment-contents"></div>
+            <div id="comment-pagination">
+                <button id="comment-prev-page" disabled>Previous</button>
+                <span id="comment-current-page">Page 1</span>
+                <button id="comment-next-page">Next</button>
+            </div>
+        </div>
+
+        <div id="comment-create">
+            <h3>Comment Create</h3>
+            <form id="comment-form">
+                <label for="comment-content"></label>
+                <textarea name="comment-content" id="comment-content" placeholder="내용을 입력하시오." required></textarea><br>
+                <input type="submit" value="저장">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Local Gourmet</p>
+    </footer>
+</body>
+</html>
