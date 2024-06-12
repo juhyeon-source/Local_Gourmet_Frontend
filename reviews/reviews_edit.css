@@ -64,6 +64,7 @@ header {
 }
 
 h2 {
+    min-width: 600px;
     color: #C62C2E;
     text-align: center;
     margin-top: 20px;
@@ -79,7 +80,7 @@ section {
 }
 
 form {
-    max-width: 600px;
+    width: 600px;
     margin: 20px auto;
     padding: 20px;
     background: #ffffff;
@@ -104,6 +105,7 @@ textarea {
 }
 
 input[type="file"] {
+    width: 100%;
     display: block;
     margin-bottom: 20px;
     padding: 5px;
