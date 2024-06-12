@@ -35,7 +35,7 @@ function searchStores() {
 }
 
 function fetchSearchResults(query, page) {
-    axios.get(`http://3.38.191.229/api/stores/?search=${query}&page=${page}`)
+    axios.get(`https://www.sparta-local-gourmet.store/api/stores/?search=${query}&page=${page}`)
         .then(response => {
             const stores = response.data.results || response.data;
             totalSearchPages = Math.ceil(response.data.count / 4);
@@ -48,7 +48,7 @@ function fetchSearchResults(query, page) {
 }
 
 function fetchScrapperData() {
-    axios.get('http://3.38.191.229/api/scrappers/?page=1')
+    axios.get('https://www.sparta-local-gourmet.store/api/scrappers/?page=1')
         .then(response => {
             const scrappers = response.data.results || response.data;
             populateSlider('scrapper-slider', scrappers);
@@ -150,7 +150,7 @@ function createCategorySection(category) {
 }
 
 function fetchDataByCategory(category, page) {
-    axios.get(`http://3.38.191.229/api/stores/?page=${page}`)
+    axios.get(`https://www.sparta-local-gourmet.store/api/stores/?page=${page}`)
         .then(response => {
             const stores = response.data.results;
             const filteredStores = filterStoresByCategory(stores, category);

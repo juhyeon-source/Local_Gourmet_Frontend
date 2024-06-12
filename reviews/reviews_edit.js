@@ -15,7 +15,7 @@ function getReviewDetails() {
         return;
     }
 
-    axios.get(`http://3.38.191.229/api/reviews/${reviewId}/`, {
+    axios.get(`https://www.sparta-local-gourmet.store/api/reviews/${reviewId}/`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -71,7 +71,7 @@ document.getElementById('review-edit').addEventListener('submit', function(event
         formData.append('image', imageInput.files[0]);
     }
 
-    axios.put(`http://3.38.191.229/api/reviews/${reviewId}/update/`, formData, {
+    axios.put(`https://www.sparta-local-gourmet.store/api/reviews/${reviewId}/update/`, formData, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
