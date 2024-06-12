@@ -15,24 +15,37 @@ h1 {
 
 #review-detail {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#comment-list {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+#comment-create {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
 }
 
 p {
     margin: 10px 0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
+    font-size: 1em;
 }
 
 button {
@@ -102,6 +115,42 @@ footer {
     bottom: 0px;
 }
 
+/* 추가 스타일 */
+.store-name, .username, .score, .review-content, .image, .created-at, .updated-at {
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.store-name {
+    background-color: #ff8c42; 
+}
+
+.username {
+    background-color: #ff6b6b; 
+}
+
+.score {
+    background-color: #4ecdc4; 
+}
+
+.review-content {
+    background-color: #cece0a; 
+}
+
+.image {
+    background-color: #ff8c42; 
+}
+
+.created-at {
+    background-color: #ff6b6b; 
+}
+
+.updated-at {
+    background-color: #4ecdc4; 
+}
+
 /* 메인 컨텐츠 스타일 */
 section {
     padding-top: 500px; /* 헤더 높이와 일치 */
@@ -109,16 +158,31 @@ section {
     padding-right: 450px; /* 좌우 여백 */
     margin-bottom: 30px; /* 각 섹션 사이에 여백 추가 */
     text-align: center;
+    background-color: #ffffff; /* 배경 흰색 설정 */
 }
 
 h1 {
     color: #ff6b6b;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     font-size: 2em;
 }
 
 h3 {
     color: #ff6b6b;
-    margin-top: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     font-size: 2em;
+}
+
+#comment-list p {
+    list-style-type: none;
+    padding: 0;
+}
+
+#comment-list p {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
 }
