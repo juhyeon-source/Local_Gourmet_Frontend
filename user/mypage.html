@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="/static/css/user/mypage.css" />
   </head>
   <body>
+    <header id="main-header">
+      <div class="auth-buttons">
+        <button id="login-button">Login</button>
+        <button id="signup-button">Sign Up</button>
+        <button id="profile-button" style="display: none">Profile</button>
+        <button id="logout-button" style="display: none">Logout</button>
+      </div>
+    </header>
     <div class="profile-container">
       <h1>프로필 정보</h1>
       <div>
@@ -56,9 +64,14 @@
       <h2>내 댓글</h2>
       <div id="comment-list"></div>
     </div>
+
+    <footer>
+      <p>&copy; 2024 Local Gourmet</p>
+    </footer>
+
     <script>
-      const frontendBaseUrl = "http://127.0.0.1:5500";
-      const backendBaseUrl = "http://127.0.0.1:8000";
+      const frontendBaseUrl = "https://www.sparta-local-gourmet.store";
+      const backendBaseUrl = "http://3.38.191.229";
 
       document.addEventListener("DOMContentLoaded", () => {
         fetchProfile();
@@ -68,7 +81,7 @@
       });
 
       function redirectToEditProfile() {
-        window.location.href = `${frontendBaseUrl}/user/user-info-update.html`;
+        window.location.href = `${frontendBaseUrl}/mains/main.html`;
       }
 
       async function fetchProfile() {
@@ -114,12 +127,15 @@
 
       async function fetchBookmarks() {
         try {
-          const response = await fetch(`${backendBaseUrl}/api/accounts/me/bookmarks/`, {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("access")}`,
-            },
-          });
+          const response = await fetch(
+            `${backendBaseUrl}/api/accounts/me/bookmarks/`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("access")}`,
+              },
+            }
+          );
           if (response.ok) {
             const data = await response.json();
             const bookmarks = data.results;
@@ -171,18 +187,21 @@
 
       async function fetchComments() {
         try {
-          const response = await fetch(`${backendBaseUrl}/api/accounts/me/comments/`, {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("access")}`,
-            },
-          });
+          const response = await fetch(
+            `${backendBaseUrl}/api/accounts/me/comments/`,
+            {
+              method: "GET",
+              headers: {
+                Authorization: `Bearer ${localStorage.getItem("access")}`,
+              },
+            }
+          );
           if (response.ok) {
             const data = await response.json();
             const comments = data.results;
             const commentList = document.getElementById("comment-list");
             commentList.innerHTML = "";
-            console.log(comments)
+            console.log(comments);
             comments.forEach((comment) => {
               const div = document.createElement("div");
               div.innerText = `댓글 내용: ${comment.comment_content}`;
@@ -195,6 +214,50 @@
           console.error("Error:", error);
         }
       }
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginButton = document.getElementById("login-button");
+        const signupButton = document.getElementById("signup-button");
+        const logoutButton = document.getElementById("logout-button");
+        const profileButton = document.getElementById("profile-button");
+
+        // 로그인 상태 확인
+        function checkLoginStatus() {
+          const token = localStorage.getItem("access");
+          if (token) {
+            loginButton.style.display = "none";
+            signupButton.style.display = "none";
+            logoutButton.style.display = "block";
+            profileButton.style.display = "block";
+          } else {
+            loginButton.style.display = "block";
+            signupButton.style.display = "block";
+            logoutButton.style.display = "none";
+            profileButton.style.display = "none";
+          }
+        }
+
+        checkLoginStatus();
+
+        loginButton.addEventListener("click", function () {
+          window.location.href = "../user/login.html";
+        });
+
+        signupButton.addEventListener("click", function () {
+          window.location.href = "../user/register.html";
+        });
+
+        logoutButton.addEventListener("click", function () {
+          localStorage.removeItem("access");
+          localStorage.removeItem("refresh");
+          localStorage.removeItem("payload");
+          checkLoginStatus();
+          window.location.href = "main.html";
+        });
+
+        profileButton.addEventListener("click", function () {
+          window.location.href = "../user/mypage.html";
+        });
+      });
     </script>
   </body>
 </html>
