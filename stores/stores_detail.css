@@ -42,6 +42,7 @@ body {
 .content-box {
     width: 30%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .content:before{
@@ -108,4 +109,67 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+}
+
+button {
+    padding: 5px 10px;
+    margin-left: 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+
+.review-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+
+#review-items {
+    margin-bottom: 20px;
+}
+
+.review-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+#review-pagination {
+    text-align: center;
+}
+
+#review-pagination button {
+    padding: 5px 10px;
+    margin-left: 10px;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#review-pagination button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+}
+
+h1 {
+    color: #ff6b6b;
+    margin-top: 20px;
+    font-size: 2em;
 }

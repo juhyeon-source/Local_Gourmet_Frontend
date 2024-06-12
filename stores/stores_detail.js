@@ -83,7 +83,7 @@ function getReviews(storeId, page) {
 function updateReviewList(reviewData) {
   reviewListElement.innerHTML = '';
   reviewData.forEach(review => {
-    const listItem = document.createElement('li');
+    const listItem = document.createElement('p');
     const reviewLink = document.createElement('a');
     reviewLink.textContent = `${review.store} - ${review.username} (${review.score}/5점)`;
     reviewLink.href = `../reviews/reviews_detail.html?reviewId=${review.id}`;
