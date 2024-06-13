@@ -1,5 +1,5 @@
-const frontendBaseUrl = "https://www.sparta-local-gourmet.store";
-const backendBaseUrl = "http://3.38.191.229";
+// const frontendBaseUrl = "https://www.sparta-local-gourmet.store";
+// const backendBaseUrl = "http://3.38.191.229";
 
 // 카카오 로그인 페이지로 이동
 async function kakaoLogin() {
