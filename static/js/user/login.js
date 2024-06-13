@@ -1,5 +1,5 @@
-const frontendBaseUrl = "https://www.sparta-local-gourmet.store";
-const backendBaseUrl = "http://3.38.191.229";
+const frontendBaseUrl = "http://127.0.0.1:5500";
+const backendBaseUrl = "http://127.0.0.1:8000";
 
 // 로그인 체크
 function checkLogin() {
