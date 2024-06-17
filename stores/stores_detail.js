@@ -39,7 +39,7 @@ function getStoreDetail() {
     return;
   }
 
-  axios.get(`https://www.sparta-local-gourmet.store/api/stores/${storeId}/`)
+  axios.get(`http://3.38.191.229/api/stores/${storeId}/`)
     .then(response => {
       const store = response.data;
       document.getElementById('store-name').textContent = store.store_name;
@@ -68,7 +68,7 @@ const reviewCurrentPageSpan = document.getElementById('review-current-page');
 let currentPage = 1;
 
 function getReviews(storeId, page) {
-  axios.get(`https://www.sparta-local-gourmet.store/api/reviews/list/${storeId}/?page_size=${page}`)
+  axios.get(`http://3.38.191.229/api/reviews/list/${storeId}/?page_size=${page}`)
     .then(response => {
       const reviewData = response.data.results;
       updateReviewList(reviewData);

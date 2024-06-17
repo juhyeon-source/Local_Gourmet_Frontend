@@ -534,6 +534,7 @@ footer {
     transition: left .3s ease-in;
 }
 
-
-
-
+blockquote {
+    color: #636363;
+    font-weight: 300;
+}
