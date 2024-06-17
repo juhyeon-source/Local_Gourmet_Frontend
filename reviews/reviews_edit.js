@@ -15,7 +15,7 @@ function getReviewDetails() {
         return;
     }
 
-    axios.get(`http://ec2-3-38-191-229.ap-northeast-2.compute.amazonaws.com/api/reviews/${reviewId}/`, {
+    axios.get(`http://3.38.191.229/api/reviews/${reviewId}/`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -71,7 +71,7 @@ document.getElementById('review-edit').addEventListener('submit', function(event
         formData.append('image', imageInput.files[0]);
     }
 
-    axios.put(`http://ec2-3-38-191-229.ap-northeast-2.compute.amazonaws.com/api/reviews/${reviewId}/update/`, formData, {
+    axios.put(`http://3.38.191.229/api/reviews/${reviewId}/update/`, formData, {
         headers: {
             'Authorization': `Bearer ${token}`
         }

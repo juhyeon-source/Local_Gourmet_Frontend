@@ -35,7 +35,7 @@ function generateMessage(userMessage) {
     isLoading = true;
     showLoading();
 
-    axios.post('http://ec2-3-38-191-229.ap-northeast-2.compute.amazonaws.com/api/chatbots/chatbot/', { message: userMessage })
+    axios.post('http://3.38.191.229/api/chatbots/chatbot/', { message: userMessage })
         .then(response => {
             const aiResponse = response.data.message;
             displayMessage(aiResponse, 'ai');

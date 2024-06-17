@@ -6,7 +6,7 @@ function searchStores() {
         return; // 최소 2글자 입력 후 검색 시작
     }
 
-    axios.get(`http://ec2-3-38-191-229.ap-northeast-2.compute.amazonaws.com/api/stores/?search=${searchQuery}`)
+    axios.get(`http://3.38.191.229/api/stores/?search=${searchQuery}`)
         .then(response => {
             const stores = response.data; // API 응답에 맞게 수정
             const storeSelect = document.getElementById('store');
@@ -41,7 +41,7 @@ function postReview(event) {
         return;
     }
 
-    axios.post('http://ec2-3-38-191-229.ap-northeast-2.compute.amazonaws.com/api/reviews/create/', formData, {
+    axios.post('http://3.38.191.229/api/reviews/create/', formData, {
         headers: {
             'Content-Type': 'multipart/form-data',
             'Authorization': `Bearer ${token}`

@@ -16,7 +16,7 @@ function getCommentDetails() {
     }
     
 
-    axios.get(`http://ec2-3-38-191-229.ap-northeast-2.compute.amazonaws.com/api/reviews/comments/${commentId}/`, {
+    axios.get(`http://3.38.191.229/api/reviews/comments/${commentId}/`, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -55,7 +55,7 @@ document.getElementById('comment-edit').addEventListener('submit', function(even
     const formData = new FormData();
     formData.append('comment_content', editedContent);
 
-    axios.put(`http://ec2-3-38-191-229.ap-northeast-2.compute.amazonaws.com/api/reviews/comments/${commentId}/update/`, formData, {
+    axios.put(`http://3.38.191.229/api/reviews/comments/${commentId}/update/`, formData, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
