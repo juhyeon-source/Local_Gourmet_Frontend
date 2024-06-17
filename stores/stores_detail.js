@@ -9,7 +9,7 @@ function getLoggedInUser() {
     return;
   }
 
-  axios.get('https://www.sparta-local-gourmet.store/api/accounts/me/', {
+  axios.get('http://3.38.191.229/api/accounts/me/', {
     headers: {
       'Authorization': `Bearer ${token}`
     }

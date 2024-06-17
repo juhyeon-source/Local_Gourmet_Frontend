@@ -35,7 +35,7 @@ function generateMessage(userMessage) {
     isLoading = true;
     showLoading();
 
-    axios.post('https://www.sparta-local-gourmet.store/api/chatbots/chatbot/', { message: userMessage })
+    axios.post('http://3.38.191.229/api/chatbots/chatbot/', { message: userMessage })
         .then(response => {
             const aiResponse = response.data.message;
             displayMessage(aiResponse, 'ai');
